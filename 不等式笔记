@@ -1,34 +1,73 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{book}
 \usepackage{amsmath}
 \usepackage{setspace}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{hyperref}
 \usepackage{amscd}
 \usepackage{CJK}
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newenvironment{proof}{{\noindent\it \textbf{Proof}}\quad}{\hfill $\square$\par}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\newtheorem{remark}{Remark}
-\newtheorem{example}{Example}
+\newenvironment{proof}{{\noindent \textbf{Proof}}\quad}{\hfill $\square$\par}
 \begin{document}
+\hypersetup{CJKbookmarks=true}
 \begin{CJK}{GBK}{song}
 \begin{spacing}{1.5}
 
-\title{不等式总结（不断更新）\footnote{参考《数学分析教程》（崔尚斌）等其他材料}}
+\title{不等式总结（不断更新）\footnote{参考《数学分析教程》（崔尚斌）、《数学分析》（陈纪修）}}
 \author{周歧}
 \maketitle
 
+\tableofcontents
+
+\chapter{不等式汇总}
 \noindent
-1.\textbf{均值不等式：\\
+\hyperlink{1}1.对任意实数$x,y\leq 0$，都成立：\\
+\[\sqrt[n]{x_1x_2\cdots x_n}\leq \dfrac{1}{n}(x_1+x_2+\cdots +x_n)\]
+等号成立当且仅当$x_1=x_2=\cdots=x_n$\\
+\hyperlink{2}2.设$p$是不等于1的正数，对于任意正实数$a,b$有不等式成立：\\
+\[(a+b)^p<a^p+b^p \mbox{当}p<1\]
+\[(a+b)^p>a^p+b^p \mbox{当}p>1\]
+\hyperlink{3}3.对于任意实数$x_1,x_2$均有不等式成立：\[||x_1|-|x_2||\leq |x_1+x_2|\leq |x_1|+|x_2|\]
+\hyperlink{4}4.设$\dfrac{a}{b}<\dfrac{c}{d}$,且$b>0,d>0$,则$\dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d}$\\
+\hyperlink{5}5.设$p>0$，则$|a+b|^p\leq 2^p max{|a|^p,|b|^p}$\\
+\hyperlink{6}6.$\dfrac{|a+b|}{1+|a+b|}\leq \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|}$\\
+\hyperlink{7}7.对于任意实数列$x_1,x_2,\cdots,x_n,y_1,y_2,\cdots,y_n$,有不等式成立\[(\sum_{k=1}^n(x_ky_k))^2\leq
+\sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]
+\hyperlink{8}8.$(1+x)^n\geq 1+nx\quad  (x>-1)$\\
+\hyperlink{9}9.$(1-x)^n\leq 1-nx+\dfrac{1}{2}n(n-1)x^2\quad (0<x<1)$\\
+\hyperlink{10}10.$\dfrac{1}{3}n^3 <1^2+2^2+\cdots+n^2=\sum_{i=1}^ni^2<\dfrac{1}{3}(n+1)^3$\\
+\hyperlink{11}11.$n!<(\dfrac{n+1}{2})^n$\\
+\hyperlink{12}12.设$m,n$均为正整数，且$m<n$，则对于任意实数$x>-1,x\neq 0$,均有不等式成立：
+\[(1+x)^{\dfrac{m}{n}}<1+\dfrac{m}{n}x\]
+\hyperlink{13}13.当$a>1$时，对任意整数$n\geq 2$有\[a^n>n(a-1)+1\]
+\hyperlink{14}14.对任意$0<x<\dfrac{\pi}{2}$有不等式成立：\[sinx<x<tanx\]
+\hyperlink{15}15.$tannt\geq ntant (n\geq 3)$\\
+\hyperlink{16}16.$nsin(n+1)t\leq (n+1)sinnt (n\geq 3)$\\
+\hyperlink{17}17.$\dfrac{1}{n+1}<ln\dfrac{n+1}{n}<\dfrac{1}{n}$\\
+\hyperlink{18}18.$|sin\alpha-sin\beta|\leq |\alpha-\beta|$\\
+\hyperlink{19}19.$|arctan\alpha-arctan\beta|\leq |\alpha-\beta|$\\
+\hyperlink{20}20.$sinx>x-\dfrac{x^3}{6}(x>0)$\\
+\hyperlink{21}21.$ny^{n-1}(x-y)<x^n-y^n<nx^{n-1}(x-y)(n>1,x>y>0)$\\
+\hyperlink{22}22.$e^x>1+x(x>0)$\\
+\hyperlink{23}23.$\dfrac{2}{\pi}<sinx<x \quad x\in(0,\dfrac{\pi}{2})$\\
+\hyperlink{24}24.$x-\dfrac{x^2}{2}<ln(1+x)<x \quad x>0$\\
+\hyperlink{25}25.$\dfrac{1}{2^{p-1}}\leq x^p+(1-x)^p\leq 1$\\
+\hyperlink{26}26.$\dfrac{tanx}{x}>\dfrac{x}{sinx}\quad x\in(0,\dfrac{\pi}{2})$\\
+\hyperlink{27}27.$\dfrac{x^n+y^n}{2}\geq (\dfrac{x+y}{2})^n \quad x,y>0,n>1$\\
+\hyperlink{28}28.$\dfrac{e^x+e^y}{2}>e^{\dfrac{x+y}{2}}\quad  x\neq y$\\
+\newpage
+
+
+\chapter{不等式具体证明}
+\noindent
+\hypertarget{1}
+1.均值不等式：\\
 对任意实数$x,y\leq 0$，都成立：\\
 \[\sqrt[n]{x_1x_2\cdots x_n}\leq \dfrac{1}{n}(x_1+x_2+\cdots +x_n)\]
-等号成立当且仅当$x_1=x_2=\cdots=x_n$.}\\
+等号成立当且仅当$x_1=x_2=\cdots=x_n$.\\
 \begin{proof}（逆向归纳法）\\
  当$n=2$时，$\sqrt{x_1x_2}=\sqrt{(\dfrac{x_1+x_2}{2})^2-(\dfrac{x_1-x_2}{2})^2}\leq \sqrt{(\dfrac{x_1+x_2}{2})^2}=\dfrac{x_1+x_2}{2}$,结论成立\\
- 当$n=2^2$时，$\sqrt[4]{x_1x_2x_3x_4}=\sqrt{\sqrt{x_1x_2}\sqrt{x_3x_4}}\leq \dfrac{\sqrt{x_1x_2}+\sqrt{x_3x_4}}{2}\leq \dfrac{1}{4}(x_1+x_2+x_3+x_4)$, 结论成立\\
+ 当$n=2^2$时，$\sqrt[4]{x_1x_2x_3x_4}=\sqrt{\sqrt{x_1x_2}\sqrt{x_3x_4}}\leq \dfrac{\sqrt{x_1x_2}+\sqrt{x_3x_4}}{2}\leq
+ \dfrac{1}{4}(x_1+x_2+x_3+x_4)$, 结论成立\\
  以此类推，$\sqrt[2^k]{x_1x_2\cdots x_{2^k}}\leq \dfrac{1}{2^k}(x_1+x_2+\cdots+x_{2^k})$\\
  下对于一般的$n$的情形进行证明：\\
  进行数学归纳法：假设$n+1$时结论成立，\\
@@ -41,7 +80,8 @@
 
 
 \noindent
-2.\textbf{设$p$是不等于1的正数，对于任意正实数$a,b$有不等式成立：}\\
+\hypertarget{2}
+2.设$p$是不等于1的正数，对于任意正实数$a,b$有不等式成立：\\
 \[(a+b)^p<a^p+b^p \mbox{当}p<1\]
 \[(a+b)^p>a^p+b^p \mbox{当}p>1\]
 \begin{proof}\\
@@ -52,8 +92,9 @@
 
 
 \noindent
-3.\textbf{三角不等式：\\
-对于任意实数$x_1,x_2$均有不等式成立：}
+\hypertarget{3}
+3.三角不等式：\\
+对于任意实数$x_1,x_2$均有不等式成立：
 \[||x_1|-|x_2||\leq |x_1+x_2|\leq |x_1|+|x_2|\]
 \begin{proof}\\
  对于任意实数均有：$-|x_1||x_2|\leq x_1x_2 \leq |x_1||x_2|$\\
@@ -63,7 +104,8 @@
 \end{proof}
 
 \noindent
-4.\textbf{设$\dfrac{a}{b}<\dfrac{c}{d}$,且$b>0,d>0$,则$\dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d}$}\\
+\hypertarget{4}
+4.设$\dfrac{a}{b}<\dfrac{c}{d}$,且$b>0,d>0$,则$\dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d}.$\\
 \begin{proof}\\
  由$\dfrac{a}{b}<\dfrac{c}{d}$,知$ad<bc$\\
  $\dfrac{a+c}{b+d}-\dfrac{a}{b}=\dfrac{cb-ad}{b(b+d)}>0 \Rightarrow \dfrac{a+c}{b+d}>\dfrac{a}{b}$\\
@@ -72,36 +114,40 @@
 \end{proof}
 
 \noindent
-5.\textbf{设$p>0$，则$|a+b|^p\leq 2^p max{|a|^p,|b|^p}$.}\\
+\hypertarget{5}
+5.设$p>0$，则$|a+b|^p\leq 2^p max{|a|^p,|b|^p}$.\\
 \begin{proof}\\
  不妨设$|a|>|b|$,则$|a+b|\leq |a|+|b| \leq 2|a| \Rightarrow |a+b|^p\leq (2|a|)^p=2^p|a|^p$\\
  $\Rightarrow |a+b|^p\leq 2^p max{|a|^p,|b|^p}$.
 \end{proof}
 
 \noindent
-6.\textbf{对任意实数$a,b$都有不等式成立：}\\
+\hypertarget{6}
+6.对任意实数$a,b$都有不等式成立：\\
 \[\dfrac{|a+b|}{1+|a+b|}\leq \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|}\]
 \begin{proof}\\
- 根据三角不等式，可有：\\
- $\dfrac{|a+b|}{1+|a+b|}\leq \dfrac{|a|+|b|}{1+|a+b|} \leq \dfrac{|a|}{1+|a+b|}+\dfrac{|b|}{1+|a+b|}\\
- \leq \dfrac{|a|}{1+||b|-|a||}+\dfrac{|b|}{1+||a|-|b||} $
+ 令$f(x)=\dfrac{x}{1+x}$,则$f'(x)=\dfrac{1}{(1+x)^2}>0$,故$f(x)$单调递增，从而$\dfrac{|a+b|}{1+|a+b|}\leq
+ \dfrac{|a|+|b|}{1+|a|+|b|}=\dfrac{|a|}{1+|a|+|b|}+\dfrac{|b|}{1+|a|+|b|} \leq \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|}$.
 \end{proof}
 
 \noindent
-7.\textbf{\emph{Cauchy-Schwarz}不等式：\\
+\hypertarget{7}
+7.\emph{Cauchy-Schwarz}不等式：\\
 对于任意实数列$x_1,x_2,\cdots,x_n,y_1,y_2,\cdots,y_n$,有不等式成立
-\[(\sum_{k=1}^n(x_ky_k))^2\leq \sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]}
-\begin{proof}
+\[(\sum_{k=1}^n(x_ky_k))^2\leq \sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]
+\begin{proof}\\
  对于$(x_1t+y_1)^2+(x_2t+y_2)^2+\cdots+(x_nt+y_n)^2\geq 0$，有
  \[(x_1^2+x_2^2+\cdots+x_n^2)t^2+2(x_1y_1+x_2y_2+\cdots+x_ny_n)t+(y_1^2+y_2^2+\cdots+y_n^2)\geq 0\]
  根据关于$t$的一元二次方程与$\Delta$的关系得：\\
- \[\Delta\leq 0 \Rightarrow (2\sum_{k=1}^n(x_ky_k))^2\leq 4\sum_{k=1}^nx_k^2\sum_{k=1}^ny_k^2 \Rightarrow (\sum_{k=1}^n(x_ky_k))^2\leq \sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]
+ \[\Delta\leq 0 \Rightarrow (2\sum_{k=1}^n(x_ky_k))^2\leq 4\sum_{k=1}^nx_k^2\sum_{k=1}^ny_k^2 \Rightarrow (\sum_{k=1}^n(x_ky_k))^2\leq
+ \sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]
  从而\emph{Cauchy-Schwarz}不等式成立.
 \end{proof}
-\textbf{特别地：}\\
+特别地：\\
 \[(\sum_{k=1}^nx_k)^2\leq n\sum_{k=1}^nx_k^2\]
 
 \noindent
+\hypertarget{8}
 8.\[(1+x)^n\geq 1+nx\quad  (x>-1)\]
 \begin{proof}（数学归纳法）\\
  当$n=2$时，$(1+x)^2=1+2x+x^2\geq 1+nx$,结论成立\\
@@ -111,6 +157,7 @@
 \end{proof}
 
 \noindent
+\hypertarget{9}
 9.\[(1-x)^n\leq 1-nx+\dfrac{1}{2}n(n-1)x^2\quad (0<x<1)\]
 \begin{proof}（数学归纳法）\\
  当$n=2$时，$(1-x)^2=1-2x+x^2$,结论成立\\
@@ -121,6 +168,7 @@
 \end{proof}
 
 \noindent
+\hypertarget{10}
 10.\[\dfrac{1}{3}n^3 <1^2+2^2+\cdots+n^2=\sum_{i=1}^ni^2<\dfrac{1}{3}(n+1)^3\]
 \begin{proof}\\
  先写个引理：\[\sum_{i=1}^ni^2=\dfrac{n(n+1)(2n+1)}{6}\]
@@ -130,6 +178,7 @@
 \end{proof}
 
 \noindent
+\hypertarget{11}
 11.\[n!<(\dfrac{n+1}{2})^n\]
 \begin{proof}\\
  根据均值不等式得：$\sqrt[n]{n!}< \dfrac{1}{n}(1+2+\cdots+n) =\dfrac{1}{n}\dfrac{(1+n)n}{2}=\dfrac{1+n}{2}$\\
@@ -137,13 +186,159 @@
 \end{proof}
 
 \noindent
-12.\textbf{设$m,n$均为正整数，且$m<n$，则对于任意实数$x>-1,x\neq 0$,均有不等式成立：
-\[(1+x)^{\dfrac{m}{n}}<1+\dfrac{m}{n}x\]}
+\hypertarget{12}
+12.设$m,n$均为正整数，且$m<n$，则对于任意实数$x>-1,x\neq 0$,均有不等式成立：
+\[(1+x)^{\dfrac{m}{n}}<1+\dfrac{m}{n}x\]
 \begin{proof}\\
 根据均值不等式得：\\
 \[(\underbrace{((1+x)\cdots (1+x))}_m\underbrace{(1\cdots 1)}_{n-m})^{\dfrac{1}{n}}\leq \dfrac{1}{n}(m(x+1)+n-m)=1+\dfrac{m}{n}x\]
 \end{proof}
 
+\noindent
+\hypertarget{13}
+13.\emph{Bernoulli}不等式：\\
+当$a>1$时，对任意整数$n\geq 2$有
+\[a^n>n(a-1)+1\]
+\begin{proof}\\
+根据均值不等式得：\\
+\[a=(a^n\cdot \underbrace{1\cdot 1\cdots 1}_{n-1})^{\dfrac{1}{n}}<\dfrac{a^n+(n-1)}{n}\]
+从而有$a^n>n(a-1)+1$.
+\end{proof}
+
+\noindent
+\hypertarget{14}
+14.对任意$0<x<\dfrac{\pi}{2}$有不等式成立：
+\[sinx<x<tanx\]
+\begin{proof}\\
+证明思想为圆周上三角形的面积不等式.
+\end{proof}
+
+\noindent
+\hypertarget{15}
+15.\[tannt\geq ntant (n\geq 3)\]
+\begin{proof}\\
+ $tannt=\dfrac{tan(n-1)t+tant}{1-tan(n-1)ttant}\geq tan(n-1)t+tant\geq \cdots \geq ntant$
+\end{proof}
+
+\noindent
+\hypertarget{16}
+16.\[nsin(n+1)t\leq (n+1)sinnt (n\geq 3)\]
+\begin{proof}\\
+ $sin(n+1)t=sinntcost+cosntsint=sinntcost(1+\dfrac{tant}{tannt})\\
+ \leq \dfrac{n+1}{n}sinnt$
+ $\Rightarrow nsin(n+1)t\leq (n+1)sinnt$
+\end{proof}
+
+\noindent
+\hypertarget{17}
+17.\[\dfrac{1}{n+1}<ln\dfrac{n+1}{n}<\dfrac{1}{n}\]
+\begin{proof}\\
+ 首先证明：$(1+\dfrac{1}{n})^n<e<(1+\dfrac{1}{n})^{n+1}$\\
+ 令$x_n=(1+\dfrac{1}{n})^n$,则有：
+ \[x_n=(1+\dfrac{1}{n})^n\cdot 1\leq (\dfrac{n(1+\dfrac{1}{n})+1}{n+1})^{n+1}=x_{n+1}\]
+ 令$y_n=(1+\dfrac{1}{n})^{n+1}$,则有：
+ \[\dfrac{1}{y_n}=(\dfrac{n}{n+1})^{n+1}\cdot 1\leq (\dfrac{(n+1)\dfrac{n}{n+1}+1}{n+2})^{n+2}=\dfrac{1}{y_{n+1}}\]
+ 则$\{x_n\}$为单调递增数列，$\{y_n\}$为单调递减数列，且极限均为$e$.\\
+ 故$(1+\dfrac{1}{n})^n<e<(1+\dfrac{1}{n})^{n+1}$\\
+ 从而：$\dfrac{1}{n+1}<ln\dfrac{n+1}{n}<\dfrac{1}{n}$
+\end{proof}
+
+\noindent
+\hypertarget{18}
+18.\[|sin\alpha-sin\beta|\leq |\alpha-\beta|\]
+\begin{proof}\\
+ \[|sin\alpha-sin\beta|=2|cos\dfrac{\alpha+\beta}{2}sin\dfrac{\alpha-\beta}{2}|\leq |\alpha-\beta|\]
+\end{proof}
+
+\noindent
+\hypertarget{19}
+19.\[|arctan\alpha-arctan\beta|\leq |\alpha-\beta|\]
+\begin{proof}\\
+ 令$f(x)=arctanx$,依\emph{Lagrange}中值定理可得：\\
+ $\exists \xi \in(\alpha,\beta),s.t.|f'(\xi)|=|\dfrac{arctan\alpha-arctan\beta}{\alpha-\beta}|$, 其中$f'(\xi)=\dfrac{1}{1+\xi^2}$，故\\
+ $|arctan\alpha-arctan\beta|=|f'(\xi)||\alpha-\beta|=\dfrac{1}{1+\xi^2}|\alpha-\beta|\leq |\alpha-\beta|$.
+\end{proof}
+
+\noindent
+\hypertarget{20}
+20.\[sinx>x-\dfrac{x^3}{6}(x>0)\]
+\begin{proof}\\
+ 令$f(x)=sinx-x+\dfrac{x^3}{6}$,则$f'(x)=cosx-1+\dfrac{x^2}{2},f''(x)=-sinx+x>0$,从而$f'(x)$单调递增，又$f'(0)=0$,故$f'(x)>0$,从而$f(x)$单调递增，
+ 又$f(0)>0$,故$f(x)>0$,则$sinx>x-\dfrac{x^3}{6}$.
+\end{proof}
+
+\noindent
+\hypertarget{21}
+21.\[ny^{n-1}(x-y)<x^n-y^n<nx^{n-1}(x-y)(n>1,x>y>0)\]
+\begin{proof}\\
+ 令$f(x)=x^n$,依据\emph{Lagrange}中值定理可得：\\
+ $\exists \xi\in (x,y),s.t.f'(\xi)=\dfrac{x^n-y^n}{x-y}$,其中$f'(\xi)=n\xi^{n-1}$,故$x^n-y^n=n\xi^{n-1}(x-y)$,由$x^n$的单调性可知
+ $ny^{n-1}<n\xi^{n-1}<nx^{n-1}$,从而：$ny^{n-1}(x-y)<x^n-y^n<nx^{n-1}(x-y)(n>1,x>y>0)$.
+\end{proof}
+
+\noindent
+\hypertarget{22}
+22.\[e^x>1+x(x>0)\]
+\begin{proof}\\
+ 令$f(x)=e^x-x-1$,则$f'(x)=e^x-1(x>0)>0$,故$f(x)$单调递增，又$f(0)=0$,从而$f(x)>0$,即$e^x>1+x$.
+\end{proof}
+
+\noindent
+\hypertarget{23}
+23.\[\dfrac{2}{\pi}<sinx<x \quad x\in(0,\dfrac{\pi}{2})\]
+\begin{proof}\\
+ 令$f(x)=\dfrac{sinx}{x}$,则$f'(x)=\dfrac{xcosx-sinx}{x^2}=\dfrac{cosx(x-tanx)}{x^2}<0$,故$f(x)$单调递减，从而
+ $\dfrac{sin\dfrac{\pi}{2}}{\dfrac{\pi}{2}}<\dfrac{sinx}{x}<\lim_{x\rightarrow0}\dfrac{sinx}{x}$, 即$\dfrac{2}{\pi}<sinx<x \quad
+ x\in(0,\dfrac{\pi}{2})$
+\end{proof}
+
+\noindent
+\hypertarget{24}
+24.\[x-\dfrac{x^2}{2}<ln(1+x)<x \quad x>0\]
+\begin{proof}\\
+ 令$f(x)=ln(1+x)-x-\dfrac{x^2}{2}$,则$f'(x)=\dfrac{1}{1+x}-1-x=\dfrac{2x^2+x}{1+x}>0$,故$f(x)$单调递增，又$f(0)=0$,从而$f(x)>0$,即
+ $ln(1+x)>x-\dfrac{x^2}{2}$\\
+ 同理可证$x>ln(1+x)$,故$x-\dfrac{x^2}{2}<ln(1+x)<x \quad x>0$.
+\end{proof}
+
+\noindent
+\hypertarget{25}
+25.\[\dfrac{1}{2^{p-1}}\leq x^p+(1-x)^p\leq 1\]
+\begin{proof}\\
+ 令$f(x)=x^p+(1-x)^p$,则$f'(x)=px^{p-1}-p(1-x)^{p-1}=p(x^{p-1}-(1-x)^{p-1})$\\
+ 当$x\in[0,\dfrac{1}{2})$时，$f'(x)<0$\\
+ 当$x\in(\dfrac{1}{2},1]$时，$f'(x)>0$\\
+ 则在$x=\dfrac{1}{2}$处，$f(x)$取最小值：$f(\dfrac{1}{2})=\dfrac{1}{2^{p-1}}$,又$f(0)=f(1)=1$,故$f(x)$的最大值为1,从而$\dfrac{1}{2^{p-1}}\leq
+ x^p+(1-x)^p\leq 1$.
+\end{proof}
+
+\noindent
+\hypertarget{26}
+26.\[\dfrac{tanx}{x}>\dfrac{x}{sinx}\quad x\in(0,\dfrac{\pi}{2})\]
+\begin{proof}\\
+ 令$f(x)=sinxtanx-x^2$,则$f'(x)=sec^2xsinx+cosxtanx-2x\geq 2\sqrt{\dfrac{1}{cos^2x}sinxcosx\dfrac{sinx}{cosx}}-2x=2tanx-2x>0\quad
+ x\in(0,\dfrac{\pi}{2})$,故$f(x)$单调递增，又$f(0)=0$,从而$f(x)>0$, 即$\dfrac{tanx}{x}>\dfrac{x}{sinx} x\in(0,\dfrac{\pi}{2})$.
+\end{proof}
+
+\noindent
+\hypertarget{27}
+27.\[\dfrac{x^n+y^n}{2}\geq (\dfrac{x+y}{2})^n \quad x,y>0,n>1\]
+\begin{proof}\\
+ 令$f(x)=x^n$,则$f'(x)=nx^{n-1},f''(x)=n(n-1)x^{n-2}>0$,故$f(x)$为下凸函数，由下凸函数的定义及得：$\dfrac{x^n+y^n}{2}\geq (\dfrac{x+y}{2})^n \quad
+ x,y>0,n>1$.
+\end{proof}
+
+\noindent
+\hypertarget{28}
+28.\[\dfrac{e^x+e^y}{2}>e^{\dfrac{x+y}{2}}\quad  x\neq y\]
+\begin{proof}\\
+ 令$f(x)=e^x$,则$f'(x)=e^x,f''(x)=e^x>0$,故$f(x)$为下凸函数，由下凸函数的定义及得：$\dfrac{e^x+e^y}{2}>e^{\dfrac{x+y}{2}}\quad  x\neq y$
+\end{proof}
+
+
+
 \end{spacing}
+\clearpage
 \end{CJK}
 \end{document}
+
