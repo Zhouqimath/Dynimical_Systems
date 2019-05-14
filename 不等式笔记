@@ -3,22 +3,32 @@
 \usepackage{setspace}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{hyperref}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
 \usepackage{amscd}
 \usepackage{CJK}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
 \newenvironment{proof}{{\noindent \textbf{Proof}}\quad}{\hfill $\square$\par}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
 \begin{document}
 \hypersetup{CJKbookmarks=true}
 \begin{CJK}{GBK}{song}
 \begin{spacing}{1.5}
 
-\title{不等式总结（不断更新）\footnote{参考《数学分析教程》（崔尚斌）、《数学分析》（陈纪修）}}
+\title{数学分析笔记（不断更新）\footnote{参考《数学分析教程》（崔尚斌）、《数学分析》（陈纪修）}}
 \author{周歧}
 \maketitle
 
 \tableofcontents
 
-\chapter{不等式汇总}
+\chapter{不等式}
+
+\section{不等式汇总}
+
 \noindent
 \hyperlink{1}1.对任意实数$x,y\leq 0$，都成立：\\
 \[\sqrt[n]{x_1x_2\cdots x_n}\leq \dfrac{1}{n}(x_1+x_2+\cdots +x_n)\]
@@ -30,7 +40,7 @@
 \hyperlink{4}4.设$\dfrac{a}{b}<\dfrac{c}{d}$,且$b>0,d>0$,则$\dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d}$\\
 \hyperlink{5}5.设$p>0$，则$|a+b|^p\leq 2^p max{|a|^p,|b|^p}$\\
 \hyperlink{6}6.$\dfrac{|a+b|}{1+|a+b|}\leq \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|}$\\
-\hyperlink{7}7.对于任意实数列$x_1,x_2,\cdots,x_n,y_1,y_2,\cdots,y_n$,有不等式成立\[(\sum_{k=1}^n(x_ky_k))^2\leq
+\hyperlink{7}7.对于任意实数列$x_1,x_2,\cdots,x_n,y_1,y_2,\cdots,y_n$, 有不等式成立\[(\sum_{k=1}^n(x_ky_k))^2\leq
 \sum_{k=1}^{n}x^2_k\sum_{k=1}^{n}y^2_k\]
 \hyperlink{8}8.$(1+x)^n\geq 1+nx\quad  (x>-1)$\\
 \hyperlink{9}9.$(1-x)^n\leq 1-nx+\dfrac{1}{2}n(n-1)x^2\quad (0<x<1)$\\
@@ -54,10 +64,18 @@
 \hyperlink{26}26.$\dfrac{tanx}{x}>\dfrac{x}{sinx}\quad x\in(0,\dfrac{\pi}{2})$\\
 \hyperlink{27}27.$\dfrac{x^n+y^n}{2}\geq (\dfrac{x+y}{2})^n \quad x,y>0,n>1$\\
 \hyperlink{28}28.$\dfrac{e^x+e^y}{2}>e^{\dfrac{x+y}{2}}\quad  x\neq y$\\
+\hyperlink{29}29.\textbf{\emph{Holder}不等式:}设$f(x),g(x)$在$[a,b]$ 上连续，$p,q$为满足$\dfrac{1}{p}+\dfrac{1}{q}=1$的正数.则:
+\[\int^b_a|f(x)g(x)|dx\leq (\int^b_a|f(x)|^pdx)^{\dfrac{1}{p}}(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}\]
+\hyperlink{30}30.\textbf{\emph{Young}不等式:}设$y=f(x)$是$[0,+\infty]$上严格单调增加的连续函数，且$f(0)=0$, 记它的反函数为$x=f^{-1}(y)$,则：
+\[\int^a_0f(x)dx+\int^b_0f^{-1}(y)dy\geq ab(a>0,b>0)\]
+\hyperlink{31}31.\textbf{\emph{Schwarz}不等式:}设$f(x)$和$g(x)$ 在$[a,b]$上都可积，则有
+\[[\int^b_af(x)g(x)dx]^2\leq \int^b_af^2(x)dx\dot\int^b_ag^2(x)dx\]
+\hyperlink{32}32.\textbf{\emph{Minkowski}不等式:}设$f(x)$和$g(x)$在$[a,b]$上都可积，则有
+\[(\int^b_a[f(x)+g(x)]^2dx)^{\dfrac{1}{2}}\leq (\int^b_af^2(x)dx)^{\dfrac{1}{2}}+(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}\]
 \newpage
 
+\section{不等式具体证明}
 
-\chapter{不等式具体证明}
 \noindent
 \hypertarget{1}
 1.均值不等式：\\
@@ -86,7 +104,7 @@
 \[(a+b)^p>a^p+b^p \mbox{当}p>1\]
 \begin{proof}\\
  设$0<p<1$,记$c=a+b$,则$0<\dfrac{a}{c}<1,0<\dfrac{b}{c}<1$
- 由于$0<p<1$,从而有$\dfrac{a}{c}<(\dfrac{a}{c})^p,\dfrac{b}{c}<(\dfrac{b}{c})^p$,当$0<p<1$时，\\
+ 由于$0<p<1$,从而有$\dfrac{a}{c}<(\dfrac{a}{c})^p,\dfrac{b}{c}<(\dfrac{b}{c})^p$, 当$0<p<1$时，\\
  $\Rightarrow 1=\dfrac{a+b}{c}<(\dfrac{a}{c})^p+(\dfrac{b}{c})^p \Rightarrow c^p<a^p+b^p \Rightarrow (a+b)^p<a^p+b^p$.
 \end{proof}
 
@@ -287,7 +305,7 @@
 \hypertarget{23}
 23.\[\dfrac{2}{\pi}<sinx<x \quad x\in(0,\dfrac{\pi}{2})\]
 \begin{proof}\\
- 令$f(x)=\dfrac{sinx}{x}$,则$f'(x)=\dfrac{xcosx-sinx}{x^2}=\dfrac{cosx(x-tanx)}{x^2}<0$,故$f(x)$单调递减，从而
+ 令$f(x)=\dfrac{sinx}{x}$,则$f'(x)=\dfrac{xcosx-sinx}{x^2}=\dfrac{cosx(x-tanx)}{x^2}<0$,故$f(x)$ 单调递减，从而
  $\dfrac{sin\dfrac{\pi}{2}}{\dfrac{\pi}{2}}<\dfrac{sinx}{x}<\lim_{x\rightarrow0}\dfrac{sinx}{x}$, 即$\dfrac{2}{\pi}<sinx<x \quad
  x\in(0,\dfrac{\pi}{2})$
 \end{proof}
@@ -308,7 +326,7 @@
  令$f(x)=x^p+(1-x)^p$,则$f'(x)=px^{p-1}-p(1-x)^{p-1}=p(x^{p-1}-(1-x)^{p-1})$\\
  当$x\in[0,\dfrac{1}{2})$时，$f'(x)<0$\\
  当$x\in(\dfrac{1}{2},1]$时，$f'(x)>0$\\
- 则在$x=\dfrac{1}{2}$处，$f(x)$取最小值：$f(\dfrac{1}{2})=\dfrac{1}{2^{p-1}}$,又$f(0)=f(1)=1$,故$f(x)$的最大值为1,从而$\dfrac{1}{2^{p-1}}\leq
+ 则在$x=\dfrac{1}{2}$处，$f(x)$取最小值：$f(\dfrac{1}{2})=\dfrac{1}{2^{p-1}}$,又$f(0)=f(1)=1$,故$f(x)$ 的最大值为1,从而$\dfrac{1}{2^{p-1}}\leq
  x^p+(1-x)^p\leq 1$.
 \end{proof}
 
@@ -335,7 +353,827 @@
  令$f(x)=e^x$,则$f'(x)=e^x,f''(x)=e^x>0$,故$f(x)$为下凸函数，由下凸函数的定义及得：$\dfrac{e^x+e^y}{2}>e^{\dfrac{x+y}{2}}\quad  x\neq y$
 \end{proof}
 
+\noindent
+\hypertarget{29}
+29.\emph{Holder}不等式\\
+设$f(x),g(x)$在$[a,b]$上连续，$p,q$为满足$\dfrac{1}{p}+\dfrac{1}{q}=1$的正数.则:
+\[\int^b_a|f(x)g(x)|dx\leq (\int^b_a|f(x)|^pdx)^{\dfrac{1}{p}}(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}\]
+\begin{proof}
+ 当$f(x)\equiv 0$或$g(x)\equiv 0$时，上式显然成立\\
+ 令
+ \[\varphi(x)=\dfrac{|f(x)|}{(\int^b_a|f(x)|^pdx)^{\dfrac{1}{q}}},
+ \psi(x)=\dfrac{|g(x)|}{(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}}\]
+ 依\emph{Young}不等式：设$a,b\geq 0,p,q$为满足$\dfrac{1}{p}+\dfrac{1}{q}=1$的正数，则有：
+ \[ab\leq \dfrac{1}{p}a^p+\dfrac{1}{q}b^q\]
+ 知\[\varphi(x)\psi(x)\leq \dfrac{1}{p}\varphi(x)^p+\dfrac{1}{q}\psi(x)^q\]
+ 即\[\dfrac{|f(x)g(x)|}{(\int^b_a|f(x)|^pdx)^{\dfrac{1}{p}}(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}}
+\leq \dfrac{|f(x)|^p}{p\int^b_a|f(x)|^pdx}+\dfrac{|g(x)|^q}{q\int^b_a|g(x)|^qdx},x\in[a,b]\]
+现对上式两边在$[a,b]$上求积分，则有:\\
+\[\dfrac{1}{(\int^b_a|f(x)|^pdx)^{\dfrac{1}{p}}(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}}\int^b_a|f(x)g(x)|dx
+\leq \dfrac{\int^b_a|f(x)|^pdx}{p\int^b_a|f(x)|^pdx}+\dfrac{\int^b_a|g(x)|^qdx}{q\int^b_a|g(x)|^qdx}=\dfrac{1}{p}+\dfrac{1}{q}=1\]
+$\Longrightarrow$\[ \int^b_a|f(x)g(x)|dx\leq (\int^b_a|f(x)|^pdx)^{\dfrac{1}{p}}(\int^b_a|g(x)|^qdx)^{\dfrac{1}{q}}\]
+\end{proof}
 
+\noindent
+\hypertarget{30}
+30.\emph{Young}不等式\\
+设$y=f(x)$是$[0,+\infty]$上严格单调增加的连续函数，且$f(0)=0$, 记它的反函数为$x=f^{-1}(y)$,则：
+\[\int^a_0f(x)dx+\int^b_0f^{-1}(y)dy\geq ab(a>0,b>0)\]
+\begin{proof}\\
+ 先证当$b=f(a)$时等号成立\\
+ 将区间$[0,a]$作划分：$0=x_0<x_1<\cdots<x_{n-1}<x_n=a$,记$y_i=f(x_i)(i=0,1,2,\cdots,n)$,则$0=y_0<y_1<\cdots<y_{n-1}<y_n=b$,记$\Delta x_i=x_i-x_{i-1},\Delta y_i=y_i-y_{i-1}$,则有：
+ \[\sum^n_{i=1}f(x_{i-1})\Delta x_i+\sum^n_{i=1}f^{-1}(y_i)\Delta y_i=\sum^n_{i=1}y_{i-1}(x_i-x_{i-1})+\sum^n_{i=1}x_i(y_i-y_{i-1})=x_ny_n-x_0y_0=ab\]
+ 从而记$\lambda=max_{1\leq i\leq n}\{\Delta x_i\}$,当$\lambda\rightarrow 0$时，$\sum^n_{i=1}f(x_{i-1})\Delta x_i+\sum^n_{i=1}f^{-1}(y_i)\Delta y_i$的极限为$\int^a_0f(x)dx+\int^b_0f^{-1}(y)dy$,故：$\int^a_0f(x)dx+\int^b_0f^{-1}(y)dy=ab$\\
+ 对于一般情况，设$F(a)=\int^a_0f(x)dx+\int^b_0f^{-1}(y)-ab$,则$F'(a)=f(a)-b$.记$f(T)=b$,那么当$0<a<T$时，$F(a)$单调递减，当$a>T$ 时，$F(a)$单调递增，从而$F(a)$在$a=T$处取到最小值.显然是当$b=f(a)$时$F(a)$取得最小值，故最小值为$F(T)=0$，从而$F(a)\geq 0$.
+\end{proof}
+
+\noindent
+\hypertarget{31}
+31.\emph{Schwarz}不等式\\
+设$f(x)$和$g(x)$在$[a,b]$上都可积，则有
+\[[\int^b_af(x)g(x)dx]^2\leq \int^b_af^2(x)dx\dot\int^b_ag^2(x)dx\]
+\begin{proof}\\
+ 由于对于任意的$t$，积分$\int^b_a(tf(x)+g(x))^2dx\geq 0$,即
+ \[t^2\int^b_af^2(x)dx+2t\int^b_af(x)g(x)dx+\int^b_ag^2(x)dx\geq0\]
+ 显然是一个关于$t$的二次函数，且其判别式恒为非正的，则：
+ \[[\int^b_af(x)g(x)dx]^2\leq \int^b_af^2(x)dx\dot\int^b_ag^2(x)dx\]
+\end{proof}
+
+\noindent
+\hypertarget{32}
+32.\emph{Minkowski}不等式\\
+设$f(x)$和$g(x)$在$[a,b]$上都可积，则有
+\[(\int^b_a[f(x)+g(x)]^2dx)^{\dfrac{1}{2}}\leq (\int^b_af^2(x)dx)^{\dfrac{1}{2}}+(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}\]
+\begin{proof}\\
+ 依\emph{Young}不等式：
+ \[\int^b_af(x)g(x)dx\leq (\int^a_bf^2(x)dx)^{\dfrac{1}{2}}(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}\]
+ 得：
+ \[\int^b_af^2(x)dx+2\int^b_af(x)g(x)dx+\int^b_ag^2(x)dx\]
+ \[\leq \int^b_af^2(x)dx+2(\int^a_bf^2(x)dx)^{\dfrac{1}{2}}(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}+\int^b_ag^2(x)dx\]
+ 即
+ \[(\int^b_a[f(x)+g(x)]^2dx)\leq [(\int^b_af^2(x)dx)^{\dfrac{1}{2}}+(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}]^2\]
+ $\Longrightarrow$
+ \[(\int^b_a[f(x)+g(x)]^2dx)^{\dfrac{1}{2}}\leq (\int^b_af^2(x)dx)^{\dfrac{1}{2}}+(\int^b_ag^2(x)dx)^{\dfrac{1}{2}}\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{三角函数及重要积分}
+
+\section{基本三角函数关系及公式}
+
+\noindent
+\textbf{基本三角函数关系}：\\
+倒数关系：$sin\alpha cos\alpha=1 \qquad cos\alpha sec\alpha=1 \qquad tan\alpha cot\alpha=1$\\
+商数关系：$tan\alpha=\dfrac{sin\alpha}{cos\alpha} \qquad cot\alpha=\dfrac{cos\alpha}{sin\alpha}$\\
+平方关系：$sin^2\alpha+cos^2\alpha=1 \qquad 1+tan^2\alpha=sec^2\alpha \qquad 1+cot^2\alpha=csc^2\alpha$\\
+
+
+\noindent
+\textbf{基本三角函数公式}:\\
+倍角公式：$sin2\alpha=2sin\alpha cos\alpha \qquad cos2\alpha=cos^2\alpha-sin^2\alpha=2cos^2\alpha-1=1-2sin^2\alpha \qquad tan\alpha=\dfrac{2tan\alpha}{1-tan^2\alpha}$\\
+半角公式：$sin^2\dfrac{\alpha}{2}=\dfrac{1-cos\alpha}{2} \qquad cos^2\alpha=\dfrac{1+cos\alpha}{2}$\\
+和差化积公式：
+\[sin\alpha\pm sin\beta=2sin\dfrac{\alpha\pm\beta}{2}cos\dfrac{\alpha\mp\beta}{2}\]
+\[cos\alpha+cos\beta=2cos\dfrac{\alpha+\beta}{2}cos\dfrac{\alpha-\beta}{2}\]
+\[cos\alpha-cos\beta=-2sin\dfrac{\alpha+\beta}{2}sin\dfrac{\alpha-\beta}{2}\]
+积化和差公式：
+\[sin\alpha sin\beta=-\dfrac{1}{2}[cos(\alpha+\beta)-cos(\alpha-\beta)]\]
+\[cos\alpha cos\beta=\dfrac{1}{2}[cos(\alpha+\beta)+cos(\alpha-\beta)]\]
+\[sin\alpha cos\beta=\dfrac{1}{2}[sin(\alpha+\beta)+sin(\alpha-\beta)]\]
+万能公式：
+\[sin\alpha=\dfrac{2tan\dfrac{\alpha}{2}}{1+tan^2\dfrac{\alpha}{2}},
+cos\alpha=\dfrac{1-tan^2\dfrac{\alpha}{2}}{1+tan^2\dfrac{\alpha}{2}}\]
+
+\noindent
+\textbf{基本三角函数不等式}：\\
+\[-\dfrac{\pi}{2}\leq arcsin\alpha \leq \dfrac{\pi}{2} \quad \forall \alpha\in[-1,1]\]
+\[0\leq arccos\alpha \leq \pi \quad \forall \alpha\in[-1,1]\]
+\[-\dfrac{\pi}{2} <arctan\alpha<\dfrac{\pi}{2} \quad \forall\alpha\in(-\infty,+\infty)\]
+\[0<arccot\alpha<\pi \quad \forall \alpha\in(-\infty,+\infty)\]
+
+\section{重要积分公式}
+
+\noindent
+\underline{$\int tanxdx=-ln|cosx|+c$}\\
+\begin{proof}\\
+  \[\int tanxdx=\int\dfrac{sinx}{cosx}dx=-\int{dcosx}{cosx}=-ln|cosx|+c\]
+\end{proof}
+\underline{$\int cotxdx=ln|sinx|+c$}\\
+\qquad 类似$\int tanxdx=-ln|cosx|+c$的证明.\\
+\\
+\noindent
+\underline{$\int secxdx=ln|secx+tanx|+c$}\\
+\begin{proof}\\
+  \[\int secxdx=\int\dfrac{1}{cosx}dx=\int\dfrac{cosx}{cos^2x}dx=\int\dfrac{dsinx}{1-sin^2x}
+  =\dfrac{1}{2}ln\dfrac{1+sinx}{1-sinx}+c\]\[=\dfrac{1}{2}ln\dfrac{(1+sinx)^2}{1-sin^2x}+c=ln|\dfrac{1+sinx}{cosx}|+c=ln|secx+tanx|+c\]
+\end{proof}
+\underline{$\int cscxdx=ln|cscx-cotx|+c$}\\
+\qquad 类似$\int secxdx=ln|secx+tanx|+c$的证明.\\
+\\
+\noindent
+\underline{$\int\dfrac{dx}{\sqrt{a^2-x^2}}=arcsin\dfrac{x}{a}+c$}\\
+\begin{proof}\\
+  \[\int \dfrac{dx}{\sqrt{a^2-x^2}}=\dfrac{1}{a}\int\dfrac{dx}{\sqrt{1-(\dfrac{x}{a})^2}}
+  =\int \dfrac{d(\dfrac{x}{a})}{\sqrt{1-(\dfrac{x}{a})^2}}=acrsin\dfrac{x}{a}+c\]
+\end{proof}
+\noindent
+\underline{$\int \dfrac{dx}{\sqrt{x^2\pm a^2}}=ln|x+\sqrt{x^2\pm a^2}|+c$}\\
+\begin{proof}\\
+  对于
+  \[\int \dfrac{dx}{\sqrt{x^2-a^2}}=ln|x+\sqrt{x^2-a^2}|+c\]
+  令$x=asect$，则：
+  \[\int \dfrac{dx}{\sqrt{x^2-a^2}}=\int sectdt=ln|sect+tant|+c\]
+  由$x=asect,tant=\sqrt{sec^2t-1}$,知$tant=\dfrac{\sqrt{x^2-a^2}}{a}$,代入得：
+  \[\int \dfrac{dx}{\sqrt{x^2-a^2}}=ln|x+\sqrt{x^2-a^2}|+c\]\\
+  对于
+  \[\int \dfrac{dx}{\sqrt{x^2+a^2}}=ln|x+\sqrt{x^2+a^2}|+c\]
+  类似$\int \dfrac{dx}{\sqrt{x^2-a^2}}=ln|x+\sqrt{x^2-a^2}|+c$ 的证明.
+\end{proof}
+
+\noindent
+\underline{$\int \dfrac{dx}{x^2-a^2}=\dfrac{1}{2a}ln|\dfrac{x-a}{x+a}|+c$}\\
+\begin{proof}\\
+  \[\int \dfrac{dx}{(x-a)(x+a)}=\dfrac{1}{2a}\int \dfrac{1}{x-a}-\dfrac{1}{x+a}dx=\dfrac{1}{2a}(ln|x-a|-ln|x+a|)+c
+  =\dfrac{1}{2a}ln|\dfrac{x-a}{x+a}|+c\]
+\end{proof}
+\noindent
+\underline{$\int \dfrac{dx}{x^2+a^2}=\dfrac{1}{a}arctan\dfrac{x}{a}+c$}\\
+\begin{proof}\\
+  \[\int\dfrac{dx}{x^2+a^2}=\dfrac{1}{a^2}\int \dfrac{dx}{(\dfrac{x}{a})^2+1}=\dfrac{1}{a}\int \dfrac{d(\dfrac{x}{a})}{(\dfrac{x}{a})^2+1}=\dfrac{1}{a}arctan\dfrac{x}{a}+c\]
+\end{proof}
+
+\noindent
+\underline{$\int\sqrt{a^2-x^2}dx=\dfrac{1}{2}x\sqrt{a^2-x^2}+\dfrac{a^2}{2}arcsin\dfrac{x}{a}+c$}\\
+\begin{proof}\\
+  令$x=asint$,则：
+  \[\int \sqrt{a^2-x^2}dx=a^2\int cos^2tdt=\dfrac{a^2}{2}\int(1+cos2t)dt=\dfrac{a^2}{2}(t+\dfrac{sin2t}{2})+c\]
+  由$t=arcsin\dfrac{x}{a}$,代入得：
+  \[\int \sqrt{a^2-x^2}dx=\dfrac{1}{2}x\sqrt{a^2-x^2}+\dfrac{a^2}{2}arcsin\dfrac{x}{a}+c\]
+\end{proof}
+
+\noindent
+\underline{$\int\sqrt{x^2\pm a^2}dx=\dfrac{1}{2}(x\sqrt{x^2\pm a^2}\pm a^2ln|x+\sqrt{x^2\pm a^2}|)+c$}\\
+\begin{proof}\\
+  对于
+  \[\int\sqrt{x^2+a^2}dx=\dfrac{1}{2}(x\sqrt{x^2+ a^2}+ a^2ln|x+\sqrt{x^2+ a^2}|)+c\]\\
+  \[\int\sqrt{x^2+a^2}dx=x\sqrt{x+2+a^2}-\int\dfrac{x^2}{\sqrt{x^2+a^2}}dx=
+  x\sqrt{x^2+a^2}-\int\dfrac{x^2+a^2-a^2}{\sqrt{x^2+a^2}}dx\]\[=x\sqrt{x^2+a^2}+\int\dfrac{a^2}{\sqrt{x^2+a^2}}-\int\sqrt{x^2+a^2}dx\]
+  $\Longrightarrow$\\
+  \[\int\sqrt{x^2+a^2}dx=\dfrac{1}{2}(x\sqrt{x^2+a^2}+\int\dfrac{a^2}{sqrt{x^2+a^2}}dx)\]
+  \[=\dfrac{1}{2}(x\sqrt{x^2+ a^2}+ a^2ln|x+\sqrt{x^2+ a^2}|)+c\]\\
+  对于
+  \[\int\sqrt{x^2- a^2}dx=\dfrac{1}{2}(x\sqrt{x^2-a^2}- a^2ln|x+\sqrt{x^2- a^2}|)+c\]\\
+  类似$\int\sqrt{x^2+a^2}dx=\dfrac{1}{2}(x\sqrt{x^2+ a^2}+ a^2ln|x+\sqrt{x^2+ a^2}|)+c$的证明.
+\end{proof}
+
+\noindent
+使用分部积分法得到的结论：\\
+\[\int e^{ax}cosbxdx=\dfrac{e^{ax}}{a^2+b^2}(acosbx+bsinbx)+c\]
+\[\int e^{ax}sinbxdx=\dfrac{e^{ax}}{a^2+b^2}(asinbx-bcosbx)+c\]
+\[\int xcosnxdx=\dfrac{1}{n^2}cosnx+\dfrac{x}{n}sinnx+c\]
+\[\int xsinnxdx=\dfrac{1}{n^2}sinnx-\dfrac{x}{n}cosnx+c\]
+
+\section{关于三角函数积分结论}
+
+\begin{theorem}
+ \[\int^{\dfrac{\pi}{2}}_0 f(sinx,cosx)dx=\int^{\dfrac{\pi}{2}}_0 f(cosx,sinx)dx\]
+\end{theorem}
+
+\begin{theorem}
+ \[\int^{\pi}_{0} xf(sinx)dx=\dfrac{\pi}{2}\int^{\pi}_{0}f(sinx)dx\]
+\end{theorem}
+
+\begin{theorem}
+ 令\[I(m,n)=\int^{\dfrac{\pi}{2}}_0 cos^mxsin^nxdx\]
+ 则\[I(m,n)=\dfrac{m-1}{m+n}I(m-2,n)=\dfrac{n-1}{m+n}I(m,n-2)\]
+ 从而
+ \[I(m,n)=\begin{cases}
+ \dfrac{(m-1)!!(n-1)!!}{(m+n)!!}\dfrac{\pi}{2} &m,n\in 2k\\
+ \dfrac{(m-1)!!(n-1)!!}{(m+n)!!} &m,n\in 2k+1
+ \end{cases}\]
+ 特别地：
+ \[\int^{\dfrac{\pi}{2}}_0 sin^nxdx=\int^{\dfrac{\pi}{2}}_0 cos^nxdx
+ =\begin{cases}
+ \dfrac{(n-1)!!}{n!!}\dfrac{\pi}{2} & n\in 2k\\
+ \dfrac{(n-1)!!}{n!!} & n\in 2k+1
+ \end{cases}\]
+\end{theorem}
+
+\begin{theorem}
+ 由对称性可得：
+ \[\int^{\pi}_0 sin^nxdx=2\int^{\dfrac{\pi}{2}}_0 sin^nxdx=2I(n,0)\]\\
+ \[\int^{2\pi}_0 sin^nxdx=
+  \begin{cases}
+   0 & n\in 2k+1\\
+   2\int^{\pi}_0 sin^nxdx=4\int^{\dfrac{\pi}{2}}_0 sin^nxdx=4I(n,0) & n\in 2k
+   \end{cases}\]\\
+ \[\int^{\pi}_0 cos^nxdx=
+  \begin{cases}
+   0 & n\in 2k+1\\
+   2\int^{\dfrac{\pi}{2}}_0 cos^nxdx=2I(n,0) & n\in 2k
+   \end{cases}\]\\
+ \[\int^{2\pi}_0 cos^nxdx=2\int^{\pi}_0 cos^nxdx=
+  \begin{cases}
+   0 &n\in 2k+1\\
+   4\int^{\dfrac{\pi}{2}}_0 cos^nxdx=4I(n,0)
+  \end{cases}\]
+
+  $\Longrightarrow$
+  \[\int^{2\pi}_0sin^nxcos^mxdx=
+  \begin{cases}
+   0  &m \notin 2k\cup n\notin 2k\\
+   4I(m,n)=\dfrac{(m-1)!!(n-1)!!}{(m+n)!!}\dfrac{\pi}{2} & m,n\in 2k
+  \end{cases}\]
+\end{theorem}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{数列极限}
+
+\section{数列极限理论}
+
+\subsection{数列极限的定义}
+\begin{definition}
+ 设$\{x_n\}$为一给定数列，$a$是一个实常数，若对于任意给定的$\varepsilon>0$,都能够找到正整数$N$，使得当$n>N$时，成立$|x_n-a|<\varepsilon$,则称数列$\{x_n\}$收敛于$a$,记为$\displaystyle{\lim_{n\rightarrow \infty}x_n=a}$.
+\end{definition}
+$\Longleftrightarrow "\varepsilon-N"$语言:\\
+$\forall \varepsilon>0,\exists N\in \mathbb{N}^{+},\forall n>N,|x_n-a|<\varepsilon \Longleftrightarrow \displaystyle{\lim_{n\rightarrow \infty}x_n=a}$
+
+\begin{remark}
+将极限为0的数列称为无穷小量，从而$\displaystyle{\lim_{n\rightarrow \infty}x_n=a}\Longleftrightarrow \{x_n-a\}\mbox{为无穷小量}$
+\end{remark}
+
+
+\noindent
+\textbf{关于数列极限的性质}
+
+\begin{proposition}
+ 收敛数列的极限必唯一
+\end{proposition}
+
+\begin{proposition}
+ 收敛数列必有界
+\end{proposition}
+
+\begin{proposition}
+ 设数列$\{x_n\},\{y_n\}$均收敛，若$\displaystyle{\lim_{n\rightarrow \infty}x_n=a,\lim_{n\rightarrow \infty}y_n=b}$,且$a<b$,则存在正整数$N$,当$n>N$时成立$x_n<y_n$.
+\end{proposition}
+\begin{corollary}
+ (1)若$\displaystyle{\lim_{n\rightarrow \infty}y_n=b>0}$,则存在正整数$N$,当$n>N$时，$y_n>\dfrac{b}{2}>0$.\\
+ (2)若$\displaystyle{\lim_{n\rightarrow \infty}y_n=b<0}$,则存在正整数$N$,当$n>N$时，$y_n<\dfrac{b}{2}<0$.
+\end{corollary}
+
+\begin{theorem}
+ 若三个数列$\{x_n\},\{y_n\},\{z_n\}$以某项开始成立：$x_n\leq y_n\leq z_n,n>N_0$，且$\displaystyle{\lim_{n\rightarrow \infty}x_n=\lim_{n\rightarrow \infty}z_n=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}y_n=a}$.
+\end{theorem}
+
+\noindent
+\textbf{一些结论：}\\
+(1)设$a>0$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a}=1}$.\\
+(2)$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{n}=1,\lim_{n\rightarrow \infty}\sqrt[n]{n^k}=1(k\in \mathbb{N}^{+})}$.\\
+(3)若$\displaystyle{\lim_{n\rightarrow \infty}a_n=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{a_1+a_2+\cdots+a_n}{n}=a}$.\\
+(4)$\displaystyle{\lim_{n\rightarrow \infty}(a_1^n+a_2^n+\cdots+a_p^n)^{\dfrac{1}{n}}=\max_{1\leq i\leq p}\{a_i\}}(a_i\geq 0)$.\\
+(5)设$a_n>0$,且$\displaystyle{\lim_{n\rightarrow \infty}a_n=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a_1a_2\cdots a_n}=a}$.\\
+(6)$\{x_n\}$为无穷小量，$\{y_n\}$为有界量，则$\{x_ny_n\}$为无穷小量.\\
+(7)若$a_n>0(n=1,2,\cdots)$,且$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{a_{n+1}}{a_n}=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a_n}=a}$.
+
+\subsection{收敛准则}
+
+
+\section{一些练习}
+
+\subsection{定理题}
+
+\subsection{经典题}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{微分中值定理}
+
+\section{微分中值定理理论}
+
+\subsection{微分中值定理}
+
+\subsection{\emph{Taylor}公式}
+
+
+\section{一些练习}
+
+\subsection{定理题}
+
+\subsection{经典题}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{定积分}
+
+\section{定积分理论}
+
+\subsection{定积分的定义}
+\begin{definition}
+ 设$f(x)$是定义在$[a,b]$上的有界函数，在$[a,b]$上任意取分点$\{x_i\}^n_{i=0}$作为一种划分：$P:a=x_0<x_1<\cdots<x_n=b$,并任意取点$\xi_i\in[x_{i-1},x_i]$, 记小区间$[x_{i-1},x_i]$的长度为$\Delta x_i=x_i-x_{i-1}$并令$\lambda=max_{1\leq i\leq n}{\Delta x_i}$.若当$\lambda\rightarrow 0$时，极限:
+ \[\lim_{\lambda\rightarrow 0}\sum^n_{i=1}f(\xi_i)\Delta x_i\]
+ 存在，且极限值既与划分$P$无关，又与对$\xi_i$的取法无关，则称$f(x)$在$[a,b]$上$\emph{Riemann}$可积，其极限值称为$f(x)$在$[a,b]$上的定积分.
+\end{definition}
+$\Longleftrightarrow "\varepsilon-\delta"$语言:\\
+设有定数$I$,对任意给定的$\varepsilon>0$,存在$\delta>0$,使得对任意一种划分：$P:a=x_0<x_1<\cdots<x_n=b$,和任意点$\xi_i\in[x_{i-1},x_i]$，只要$\lambda=max_{1\leq i\leq n}(\Delta x_i)<\delta$,便有:
+\[|\sum^n_{i=1} f(\xi_i)\Delta x_i-I|<\varepsilon\]
+则称$f(x)$在$[a,b]$上$\emph{Riemann}$可积,称$I$为$f(x)$在$[a,b]$上的定积分.
+
+\begin{remark}
+ 可积函数一定有界（有界函数不一定可积（\emph{Dirchelet}函数））.
+\end{remark}
+
+\begin{definition}
+ 记$f(x)$在$[a,b]$上的上确界和下确界分别为$M,m$，则有$m\leq f(x)\leq M$,另外，记$f(x)$在$[x_{i-1},x_i]$的上确界和下确界分别为$M_i,m_i(i=1,2,\cdots,n)$, 即\[M_i=sup\{f(x)|x\in [x_{i-1},x_i]\},m_i=inf\{f(x)|x\in [x_{i-1},x_i]\}\]
+ 取定划分$P$后，定义和式：
+ \[\overline{S}(P)=\sum^n_{i=1} M_i\Delta x_i,\underline{S}(P)=\sum^n_{i=1}m_i\Delta x_i\]
+ 分别称为相应于划分$P$的$\emph{Darboux}$大和与$\emph{Darboux}$ 小和，显然成立：
+ \[\underline{S}(P)\leq \sum^n_{i=1}f(\xi_i)\Delta x_i \leq \overline{S}(P)\]
+\end{definition}
+
+\begin{lemma}
+ 若在原有划分中加入分点形成新的划分，则大和不增，小和不减.
+\end{lemma}
+\begin{proof}
+ 设$\overline{S}(P),\underline{S}(P)$分别相应于$P$划分的$\emph{Darboux}$大和与$\emph{Darboux}$小和,设相应的分点为$\{x_i\}^n_{i=1}$.\\
+ 对$P$划分增加一个新分点得到新的划分$P'$,设新增加的点为$x'\in(x_{i-1},x_i)$,记$f(x)$在$[x_{i-1},x']$的上确界为$M'$,在$[x',x_i]$的上确界为$M''$,则有$M'\leq M_i,M''\leq M_i$.故$M_i(x_i-x_{i-1})\leq M'(x'-x_{i-1})+M''(x_i-x') \Rightarrow \quad \overline{S}(P')\leq \overline{S}(P)$.\\
+ 同理可证$\underline{S}(P)\leq \underline{S}(P')$.
+\end{proof}
+
+\begin{lemma}
+ 对任意$\overline{S}(P_1) \in \overline{\mathbf{S}}$和$\underline{S}(P_2)\in \underline{\mathbf{S}}$,恒有$m(b-a)\leq \underline{S}(P_2) \leq \overline{S}(P_1) \leq M(b-a)$.
+\end{lemma}
+\begin{proof}
+ 任意一种划分都可以视为由$n=1$的划分$a=x_0<x_1=b$中插入若干分点所产生的新划分，由$\mathbf{lemma 1}$知$m(b-a)\leq \underline{S}(P_2),\overline{S}(P_1) \leq M(b-a)$,将划分$P_1,P_2$合并形成划分$P$,则依$\mathbf{lemma 1}$知：$\underline{S}(P_2)\leq \underline{S}(P)\leq \overline{S}(P) \leq \overline{S}(P_1)$.$\Rightarrow \underline{S}(P_2)\leq \overline{S}(P_1)$.故有：$m(b-a)\leq \underline{S}(P_2) \leq \overline{S}(P_1) \leq M(b-a)$.
+\end{proof}
+
+\begin{lemma}{\textbf{(Darboux theorem)}}
+ 令$L=inf\{\overline{S}(P)|\overline{S}(P)\in \overline{\mathbf{S}}\},l=sup\{\underline{S}(P)|\underline{S}(P)\leq \underline{\mathbf{S}}\}$（定义是合理的，由$\mathbf{lemma 2}$ 知$\overline{\mathbf{S}},\underline{\mathbf{S}}$都是有界集）,对任意在$[a,b]$上有界函数$f(x)$恒有
+ \[\lim_{\lambda\rightarrow 0}\overline{S}(P)=L,\lim_{\lambda\rightarrow 0}\underline{S}(P)=l\]
+\end{lemma}
+\begin{proof}
+ 只证明前半部分$\lim_{\lambda\rightarrow 0}\overline{S}(P)=L$\\
+ $\forall \varepsilon>0$,由于$L$为$\overline{S}(P)$的上确界，故存在一个划分$P'$使得
+ \begin{equation}
+ 0\leq \overline{S}(P')-L <\varepsilon
+ \end{equation}
+ 设划分$P'$对应的分点为$P':a=x'_0<x'_1<\cdots<x'_p=b$,并且假设$\delta=min\{\Delta x'_1,\cdots,\Delta x'_p,\dfrac{\varepsilon}{(p-1)(M-m)}\}$
+ 取任意满足$\lambda=max\{\Delta x_i\}<\delta$的划分$P$,设划分$P$对应的分点为$P:a=x_0<x_1<\cdots<x_n=b$\\
+ 将划分$P,P'$进行合并形成新的划分$P''$,从而有
+ \begin{equation}
+  \overline{S}(P'')\leq \overline{S}(P')
+ \end{equation}
+ 对于新形成的划分$P''$有以下两种情况：\\
+ (1)$P$中任一区间$[x_{i-1},x_i]$不含有新划分的点，那么$\overline{S}(P),\overline{S}(P'')$相同项为$M_i\Delta x_i$\\
+ (2)$P$中区间$[x_{i-1},x_i]$含有新划分的点，由于两种划分的端点重合，那么这种区间只有$p-1$个，又$\Delta x_i<\delta<\Delta x'_j(i=1,\cdots,n;j=1,\cdots,p)$，从而知$P$中区间只能含有一个新划分的点.不妨设含有的新划分的点为$x'_j$,设$[x_{i-1},x'_j]$的上确界为$M'_i$,$[x'_j,x_i]$的上确界为$M''_i$,那么$\overline{S}(P),\overline{S}(P'')$相应项相差
+ \[M_i(x_i-x_{i-1})-(M'_i(x'_j-x_{i-1})+M''_i(x_i-x'_j))\leq (M_i-m_i)(x_i-x_{i-1})<(M-m)\delta\]
+ 从而：
+ \begin{equation}
+  0\leq \overline{S}(P)-\overline{S}(P'')\leq (p-1)(M-m)\delta<\varepsilon
+ \end{equation}
+ 由(1)(2)(3)式得：
+ \[0\leq \overline{S}(P)-L\leq \overline{S}(P)-\overline{S}(P'')+\overline{S}(P'')- \overline{S}(P')+\overline{S}(P')-L <2\varepsilon\]
+ 故
+ \[\lim_{\lambda\rightarrow 0}\overline{S}(P)=L\]
+\end{proof}
+
+\begin{theorem}
+ 有界函数$f(x)$在$[a,b]$上可积
+ $\Longleftrightarrow$\\ 对任意划分$P$，当$\lambda=max_{1\leq i\leq n}\{\Delta x_i\}\rightarrow 0$时，$\emph{Darboux}$大和与$\emph{Darboux}$小和的极限相等，即
+ \[\lim_{\lambda\rightarrow 0}\overline{S}(P)=L=l=\lim_{\lambda\rightarrow 0}\underline{S}(P)\]
+\end{theorem}
+\begin{proof}\\
+ $"\Rightarrow"$\\
+ $f(x)$在$[a,b]$上可积，不妨设$f(x)$在$[a,b]$上的积分值为$I$,从而有$\forall \varepsilon>0,\exists \delta>0,\forall P:a=x_0<\cdots<x_n=b,\forall \xi_i\in[x_{i-1},x_i]$,当$\lambda=max_{1\leq i\leq n}(\Delta_i)<\delta$时，使得
+ \begin{equation}
+  |\sum^n_{i=1}f(\xi_i)\Delta x_i-I|<\varepsilon
+ \end{equation}
+ 由于$M_i$为$f(x)$在$[x_{i-1},x_i]$的上确界，则$\exists \xi_i\in[x_{i-1},x_i],s.t.0\leq M_i-f(\xi_i)<\dfrac{\varepsilon}{b-a}$, 从而
+ \begin{equation}
+  |\overline{S}-\sum^n_{i=1}f(\xi_i)\Delta x_i|=|\sum^n_{i=1}M_i\Delta x_i-\sum^n_{i=1}f(\xi_i)\Delta x_i|\leq \varepsilon
+ \end{equation}
+ 由(4)(5)式得：
+ \[|\overline{S}-I|\leq |\overline{S}-\sum^n_{i=1}f(\xi_i)\Delta x_i|+|\sum^n_{i=1}f(\xi_i)\Delta x_i-I|<2\varepsilon\]
+ 故
+ \[\lim_{\lambda\rightarrow 0}\overline{S}(P)=I\]
+ 同理可得$\lim_{\lambda\rightarrow 0}\underline{S}(P)=I$
+ 从而：\[\lim_{\lambda\rightarrow 0}\overline{S}(P)=\lim_{\lambda\rightarrow 0}\underline{S}(P)\]
+$"\Leftarrow"$\\
+由于
+\[
+ \overline{S}(P)\leq \sum^n_{i=1}f(\xi_i)\Delta x_i \leq \underline{S}(P)
+\]
+又
+\[\lim_{\lambda\rightarrow 0}\overline{S}(P)=\lim_{\lambda\rightarrow 0}\underline{S}(P)\]
+从而
+\[\lim_{\lambda\rightarrow 0}\sum^n_{i=1}f(\xi_i)\Delta x_i=I\]
+\end{proof}
+
+\begin{theorem}
+ 有界函数$f(x)$在$[a,b]$上可积
+ $\Longleftrightarrow$\\ 对任意划分，当$\lambda=max_{1\leq i\leq n}\{\Delta x_i\}\rightarrow 0$时，有
+ \[\lim_{\lambda\rightarrow 0}\sum^n_{i=1}\omega_i\Delta x_i=0(\omega_i=M_i-m_i)\]
+\end{theorem}
+\begin{proof}
+ 有界函数$f(x)$在$[a,b]$上可积$\Longleftrightarrow$对任意划分，当$\lambda=max_{1\leq i\leq n}\{\Delta x_i\}\rightarrow 0$ 时，\[\lim_{\lambda\rightarrow 0}\overline{S}(P)=\lim_{\lambda\rightarrow 0}\underline{S}(P)\]
+ $\Longleftrightarrow\forall \varepsilon>0,\exists \delta>0$当$\lambda=max_{1\leq i\leq n}\{\Delta x_i\}\rightarrow 0$时，
+ \[|\overline{S}(P)-\underline{S}(P)|<\varepsilon\]
+ $\Longleftrightarrow$
+ \[|\sum^n_{i=1}M_i\Delta x_i-\sum^n_{i=1}m_i\Delta x_i|<\varepsilon\]
+ $\Longleftrightarrow$
+ \[|\sum^n_{i=1}(M_i-m_i)\Delta x_i|<\varepsilon\]
+ $\Longleftrightarrow$
+ \[\lim_{\lambda\rightarrow 0}\sum^n_{i=1}\omega_i\Delta x_i=0(\omega_i=M_i-m_i)\]
+\end{proof}
+
+\begin{theorem}
+ 有界函数$f(x)$在$[a,b]$上可积
+ $\Longleftrightarrow$\\ 对任意给定的$\varepsilon>0$,存在一种划分，使得相应的振幅满足
+ \[\sum^n_{i=1}\omega_i\Delta x_i<\varepsilon\]
+\end{theorem}
+\begin{proof}
+ $"\Rightarrow"$显然的\\
+ $"\Leftarrow"$ 思想类似于$\mathbf{lemma 3}$的证明.
+\end{proof}
+
+\begin{corollary}
+ 闭区间上的连续函数必定可积.
+\end{corollary}
+\begin{proof}
+ 设$f(x)$在区间$[a,b]$上连续，从而$f(x)$在区间$[a,b]$上一致连续，故$\forall \varepsilon>0,\exists \delta>0,\forall x',x''\in[a,b],|x'-x''|<\delta$ 有
+ \[|f(x')-f(x'')|<\dfrac{\varepsilon}{b-a}\]
+ 对任意的划分$P$，当$\lambda=\max_{1\leq i\leq n}(\Delta x_i)\rightarrow 0$时，有
+ \[\omega_i=\max_{x\in[x_{i-1},x_i]}f(x)-\min_{x\in[x_{i-1},x_i]}f(x)
+ <\dfrac{\varepsilon}{b-a}\]
+ 故
+ \[\sum^n_{i=1}\omega_i\Delta x_i<\varepsilon\]
+ 从而$f(x)$在区间$[a,b]$上可积.
+\end{proof}
+
+\begin{corollary}
+ 闭区间单调函数必定可积.
+\end{corollary}
+\begin{proof}
+ 不妨设$f(x)$是区间$[a,b]$上的单调增函数，则在区间$[x_{i-1},x_i]$上的振幅为$\omega_i=f(x_i)-f(x_{i-1})$,取$\delta=\dfrac{\varepsilon}{b-a}$,当$\lambda=\max_{1\leq i\leq n}(\Delta x_i)\rightarrow 0$时，有
+ \[\sum^n_{i=1}\omega_i\Delta x_i=\sum^n_{i=1}(f(x_i)-f(x_{i-1}))\Delta x_i<\varepsilon\]
+ 从而$f(x)$在$[a,b]$上可积.
+\end{proof}
+
+\begin{corollary}
+ 闭区间上只有有限个不连续点的有界函数必定可积.
+\end{corollary}
+\begin{proof}
+ 设$f(x)$有$k$个不连续的点，不妨设为$a\leq p'_1<\cdots<p'_k\leq b$,设$p'_1,p'_k$在$[a,b]$的内部.$\forall \varepsilon>0$,取$\delta=\dfrac{\varepsilon}{2k(M+m)}>0$.\\
+ 以$p'_j$的$\delta$邻域的端点为分点，则有$2k+1$个小区间，有$D^{(1)}=[a,p'_1-\delta),D^{(j)}=(p'_{j-1}+\delta,p'_j-\delta),D^{(k+1)}=(p'_k+\delta,b]$,
+ 显然$f(x)$在$D^{(1)},D^{(j)},D^{(k+1)}$上是连续的，故$f(x)$在这些区间上可积.\\
+ 故在每个$D^{(j)}$上分别存在分点$x^{(j)}_0<x^{(j)}_1<\cdots<x^{(j)}_{l_j}(j=1,2,\cdots,k+1)$使得
+ \[\sum^{l_j}_{i=1}\omega_i^{(j)}\Delta x_i^{(j)}<\dfrac{\varepsilon}{k+1}\]
+ 将所有点视为一个划分，记$\omega'_j$为$f(x)$在$[p'_j-\delta,p'_j+\delta]$的振幅.则有
+ \[\sum^n_{i=1}\omega_i\Delta x_i=\sum^{k+1}_{j=1}\sum^{l_j}_{i=1}\omega^{(j)}_i\Delta x^{(j)}_i+\sum^k_{j=1}\omega'_j2\delta<2\varepsilon\]
+ 从而$f(x)$在$[a,b]$上可积.
+\end{proof}
+
+\subsection{定积分的性质}
+
+\begin{proposition}(线性性质）\\
+设$f(x)$和$g(x)$都在$[a,b]$上可积，$k_1,k_2$为常数，则函数$k_1f(x)+k_2g(x)$在$[a,b]$上也可积，且有
+ \[\int^a_b k_1f(x)+k_2g(x) dx=k_1\int^b_a f(x)dx+k_2\int^b_a g(x)dx\]
+\end{proposition}
+\begin{proposition}(乘积可积性)\\
+ 设$f(x)$和$g(x)$都在$[a,b]$上可积，则$f(x)g(x)$在$[a,b]$上也可积.
+\end{proposition}
+\begin{proposition}（保序性)
+ 设$f(x)$和$g(x)$都在$[a,b]$上可积，且在$[a,b]$上恒有$f(x)\geq g(x)$,则$\int^b_a f(x)dx\geq \int^a_b g(x)dx$.
+\end{proposition}
+\begin{proposition}（绝对可积性）
+ 设$f(x)$在$[a,b]$上可积，则$|f(x)|$在$[a,b]$上也可积，且有
+ \[|\int^b_a f(x) dx|\leq \int^b_a|f(x)|dx\]
+\end{proposition}
+\begin{proposition}（区间可加性）
+ 设$f(x)$在$[a,b]$上可积，则对任意点$c\in [a,b]$.$f(x)$在$[a,c]$和$[c,a]$上都可积，反之,若$f(x)$在$[a,c],[c,b]$上都可积，则$f(x)$在$[a,b]$上可积，且有
+ \[\int^b_a f(x)dx=\int^c_a f(x)dx+\int^b_c f(x)dx\]
+\end{proposition}
+
+\begin{theorem}(\textbf{积分第一中值定理}）
+ 设$f(x)$和$g(x)$都在$[a,b]$上可积，$g(x)$在$[a,b]$上不变号，则存在$\eta\in [m,M]$,使得
+ \[\int^b_af(x)g(x) dx=\eta\int^b_a g(x)dx\]
+ 这里$M,m$分别表示$f(x)$在$[a,b]$的上确界和下确界.\\
+ 特别地，若$f(x)$在$[a,b]$上连续，则存在$\xi\in [a,b]$,使得
+ \[\int^b_af(x)g(x)dx=f(\xi)\int^b_ag(x)dx\]
+\end{theorem}
+\begin{proof}
+ 由于$g(x)$在$[a,b]$上不变号，不妨设$g(x)\geq 0$,从而
+ \[mg(x)\leq f(x)g(x) \leq Mg(x)\]
+ $\Longleftrightarrow$
+ \[m\int^b_a g(x)dx\leq \int^b_a f(x)g(x)dx \leq M\int^b_a g(x)dx\]
+ 由于$\displaystyle{\int^b_a g(x)dx},\displaystyle{\int^b_a f(x)g(x)dx}$ 均为常数，故存在$\eta\in[m,M]$使得
+ \[\int^b_af(x)g(x) dx=\eta\int^b_a g(x)dx\]
+ 若$f(x)$连续，依介值定理得，存在$\xi\in[a,b]$，使得$f(\xi)=\eta$,从而
+ \[\int^b_af(x)g(x)dx=f(\xi)\int^b_ag(x)dx\]
+\end{proof}
+\begin{remark}
+ 若$f(x)$在$[a,b]$上连续且$g(x)\equiv 1$,则
+ \[\int^b_a f(x)dx=f(\xi)(b-a)\quad (\xi\in[a,b])\]
+\end{remark}
+
+\subsection{微积分定理}
+
+\begin{theorem}
+ 设$f(x)$在$[a,b]$上可积，作函数$F(x)=\displaystyle{\int^x_a f(t)dt},x\in[a,b]$,则：
+ （1）$F(x)$是$[a,b]$上的连续函数\\
+ （2）若$f(x)$在$[a,b]$上连续，则$F(x)$在$[a,b]$上可微，且有$F'(x)=f(x)$.
+\end{theorem}
+\begin{proof}
+ $F(x+\Delta x)-F(x)=\displaystyle{\int^{x+\Delta x}_af(t)dt-\int^x_af(t)dt}=\displaystyle{\int^{x+\Delta x}_x f(t)dt}$\\
+ 依积分第一中值定理得
+ \[F(x+\Delta x)-F(x)=
+ \begin{cases}
+  \eta \Delta x &\eta\in[m,M] \quad f(x)\mbox{在}[a,b]\mbox{上可积}\\
+  f(\xi)\Delta x &\xi\in (x,x+\Delta x)\quad f(x)\mbox{在}[a,b]\mbox{上连续}
+ \end{cases}
+ \]
+ 显然$\displaystyle{\lim_{\Delta x\rightarrow 0} F(x+\Delta x)-F(x)=0}$,故$F(x)$在$[a,b]$上连续.
+ 若$f(x)$在$[a,b]$上连续，则有$\xi\rightarrow x(\Delta x\rightarrow 0)$时，$f(\xi)\rightarrow f(x)$.故
+ \[F'(x)=\lim_{\Delta x\rightarrow 0}\dfrac{F(x+\Delta x)-F(x)}{\Delta x}=\lim_{\Delta x\rightarrow 0}\dfrac{f(\xi)\Delta x}{\Delta x}=f(x)\]
+\end{proof}
+\begin{remark}
+ 当$f(x)$在$[a,b]$上连续时，$\displaystyle{\int^b_a f(t)dt}$为$f(x)$在$[a,b]$上的一个原函数，即任何一个连续函数均存在原函数.
+\end{remark}
+
+\begin{theorem}(\textbf{微积分基本定理(\emph{Newton-Leibniz}公式)})\\
+设$f(x)$在$[a,b]$上连续，$F(x)$是$f(x)$在$[a,b]$上的一个原函数，则有
+\[\int^b_af(t)dt=F(b)-F(a)\]
+\end{theorem}
+\begin{proof}
+$F(x)$为$f(x)$在$[a,b]$上的一个原函数，$\displaystyle{\int^x_af(t)dt}$为$f(x)$在$[a,b]$上的一个原函数，则有$\displaystyle{\int^x_af(t)dt=F(x)+C}$,令$x=a$,则有$C=-F(a)$,从而$\displaystyle{\int^x_af(t)dt=F(x)-F(a)}$,令$x=b$, 则有$\displaystyle{\int^b_af(t)dt=F(b)-F(a)}$
+\end{proof}
+
+\begin{definition}
+ 设$g_n(x)$是定义在$[a,b]$上的一列函数$(n=0,1,\cdots)$，若对任意的$m,n$，$g_m(x),g_n(x)$在$[a,b]$上可积，且有
+ \[\int^b_ag_m(x)g_n(x)dx=
+ \begin{cases}
+  0 & m\neq n\\
+  \displaystyle{\int^b_a g^2_n(x)dx>0} & m=n
+ \end{cases}
+ \]
+ 则称$\{g_n(x)\}$是$[a,b]$上的正交函数列，特别地，当$g_n(x)$是$n$次多项式时，则称$\{g_n(x)\}$是$[a,b]$上的正交多项式列.
+\end{definition}
+
+\begin{theorem}
+设$f(x)$在对称区间$[-a,a]$上可积：\\
+ (1)若$f(x)$是偶函数，则有$\displaystyle{\int^a_{-a} f(x)dx=2\int^a_0 f(x)dx}$\\
+ (2)若$f(x)$是奇函数，则有$\displaystyle{\int^a_{-a} f(x)dx=0}$
+\end{theorem}
+
+\begin{theorem}
+ 设$f(x)$是以$T$为周期的可积函数，则对任意$a$有
+ \[\int^{a+T}_a f(x)dx=\int^T_a f(x)dx\]
+\end{theorem}
+
+
+\section{一些练习}
+
+\subsection{定理题}
+
+\subsection{经典题}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{反常积分}
+
+\section{反常积分理论}
+
+\subsection{反常积分的定义}
+
+\begin{definition}(\textbf{无穷区间上的反常积分})
+ 设函数$f(x)$在$[a,+\infty)$上有定义，且在任意有限区间$[a,A]\subset [a,+\infty)$上可积，若极限$\displaystyle{\lim_{A\rightarrow +\infty}\int^A_af(x)dx}$ 存在，则称反常积分$\displaystyle{\int^{+\infty}_af(x)dx}$收敛，有
+ \[\int^{+\infty}_af(x)dx=\lim_{A\rightarrow +\infty}\int^A_af(x)dx\]
+\end{definition}
+
+\textbf{$\emph{Newton-Leibniz}$公式}:
+\[\int^{+\infty}_a f(x)dx=\lim_{A\rightarrow +\infty}\int^A_a f(x)dx=\lim_{A\rightarrow +\infty}F(x)|^A_a=\lim_{A\rightarrow +\infty}(F(A)-F(a))\]
+则有：\\
+\[\int^{+\infty}_af(x)dx\mbox{敛散性}\Longleftrightarrow \lim_{A\rightarrow +\infty}F(A)\mbox{敛散性}\]
+\\
+\noindent
+重要反常积分的敛散性：
+\begin{example}
+ \[\int^{+\infty}_1 \dfrac{1}{x^p} dx(p\in \mathbb{R})=
+ \begin{cases}
+  \mbox{收敛} & p>1\\
+  \mbox{发散} & p\leq 1
+ \end{cases}
+ \]
+\end{example}
+
+\begin{example}
+ \[\int^{+\infty}_0 e^{-ax} dx(a\in \mathbb{R})=
+ \begin{cases}
+  \mbox{收敛} & a>0\\
+  \mbox{发散} & a\leq 0
+ \end{cases}
+ \]
+\end{example}
+
+\begin{definition}(\textbf{无穷函数的反常积分})
+ 设函数$f(x)$在$x=b$的左邻域无界，若对于任意$\eta\in (0,b-a)$,$f(x)$在区间$[a,b-\eta]$上有界可积且极限$\displaystyle{\lim_{\eta\rightarrow 0^+}\int^{b-\eta}_a f(x)dx}$存在，则称反常积分$\displaystyle{\int^b_a f(x)dx}$收敛，有
+ \[\int^b_a f(x)dx=\lim_{\eta\rightarrow 0^+}\int^{b-\eta}_a f(x)dx\]
+\end{definition}
+
+\noindent
+重要反常积分的敛散性：
+\begin{example}
+ \[\int^1_0 \dfrac{1}{x^p}dx(p\in \mathbb{R})=
+ \begin{cases}
+ \mbox{收敛} & p<1\\
+ \mbox{发散} & p\geq 1
+ \end{cases}
+ \]
+\end{example}
+
+\begin{remark}
+ 无穷区间上的反常积分与无界函数的反常积分相互转换
+\end{remark}
+\begin{proof}
+ $\displaystyle{\int^{+\infty}_af(x)dx\overset{x=\dfrac{1}{t}}{=}\int^0_{\dfrac{1}{a}}f(\dfrac{1}{t}(-\dfrac{1}{t^2})dt=\int^{\dfrac{1}{a}}_0\dfrac{1}{t^2}f(\dfrac{1}{t})dt}$\\
+ $\overset{g(t)=\dfrac{1}{t^2}f(\dfrac{1}{t})}{=}\displaystyle{\int^{\dfrac{1}{a}}_0 g(t)dt}$,显然$t=0$为$g(t)$的奇点.\\
+ $\displaystyle{\int^b_af(\dfrac{1}{x-b})\overset{t=x-b}{=}\int^0_{a-b}f(\dfrac{1}{t}dt=\int^{+\infty}_{\dfrac{1}{a-b}}f(t)(-\dfrac{1}{t^2})dt}$\\
+ $\overset{g(t)=f(t)(-\dfrac{1}{t^2})}{=}\displaystyle{\int^{+\infty}_{\dfrac{1}{a-b}}g(t)dt}$, 显然为无穷区间上的反常积分.
+\end{proof}
+
+
+\subsection{反常积分的敛散性}
+
+\noindent
+\textbf{首先介绍无穷区间反常积分的敛散性.}
+
+\begin{theorem}(\textbf{\emph{Cauchy}收敛原理})
+ 反常积分$\displaystyle{\int^{+\infty}_a f(x)dx}$收敛$\Longleftrightarrow$ $\forall \varepsilon>0,\exists A_0\geq 0,s.t.\forall A,A'\geq A_0,|\displaystyle{\int^{A’}_A f(x)dx}|<\varepsilon$.
+\end{theorem}
+\begin{proof}
+ $\displaystyle{\int^{+\infty}_af(x)dx}$收敛$\Longleftrightarrow$ $\displaystyle{\lim_{A\rightarrow +\infty}\int^A_af(x)dx}$收敛，即
+ $\forall \varepsilon>0,\exists A_0>a,\forall A,A'>A_0,|\displaystyle{\int^{A'}_af(x)dx-\int^A_af(x)dx}|<\varepsilon$, 从而
+ $|\displaystyle{\int^{A'}_Af(x)dx}|<\varepsilon$.
+\end{proof}
+
+\begin{definition}
+ 设$f(x)$在任意有限区间$[a,A]\subset [a,+\infty)$上可积，且$\displaystyle{\int^{+\infty}_a|f(x)|dx}$收敛，则称$\displaystyle{\int^{+\infty}_af(x)dx}$绝对收敛，若$\displaystyle{\int^{+\infty}_af(x)dx}$收敛而非绝对收敛，则称$\displaystyle{\int^{+\infty}_af(x)dx}$条件收敛.
+\end{definition}
+
+\begin{theorem}
+ 若反常积分绝对收敛，则一定收敛.
+\end{theorem}
+\begin{proof}
+ $\forall \varepsilon>0,\exists A_0\geq 0,s.t. \forall A,A'\geq A_0$,有$|\displaystyle{\int^{A'}_A|f(x)|dx}|<\varepsilon$.由于$|\displaystyle{\int^{A'}_Af(x)dx}|\leq |\displaystyle{\int^{A'}_A|f(x)|dx}|<\varepsilon$,依$\emph{Cauchy}$收敛原理，则$\displaystyle{\int^{+\infty}_af(x)dx}$收敛.
+\end{proof}
+
+
+\noindent
+\textbf{关于非负函数反常积分的收敛判别法}
+
+\begin{theorem}
+ 设$f(x)\geq 0$,若无穷积分$\displaystyle{\int^{+\infty}_a f(x)dx}$收敛 $\Longleftrightarrow$ $F(A)=\displaystyle{\int^A_af(x)dx}$是$A\in[a,+\infty)$上的有界函数.
+\end{theorem}
+\begin{proof}
+ $\displaystyle{\int^{+\infty}_a f(x)dx}$收敛 $\Longleftrightarrow$ $\displaystyle{\lim_{A\rightarrow +\infty}\int^{A}_a f(x)dx}$存在，即$\displaystyle{\lim_{A\rightarrow +\infty}F(A)}$存在.由于$F(A)$单调递增，又$F(A)$有界，依单调有界定理，知$\displaystyle{\lim_{A\rightarrow +\infty}F(A)}$收敛.
+\end{proof}
+
+\begin{theorem}（\textbf{比较判别法}）
+ 设在$[a,+\infty)$上，$0\leq f(x)\leq K\varphi(x)$,其中$K$为正常数，则：\\
+ (1)当$\displaystyle{\int^{+\infty}_a \varphi(x)dx}$收敛时，$\displaystyle{\int^{+\infty}_af(x)dx}$也收敛.\\
+ (2)当$\displaystyle{\int^{+\infty}_a f(x)dx}$发散时，$\displaystyle{\int^{+\infty}_a \varphi(x)dx}$也发散.
+\end{theorem}
+\begin{proof}
+ 法一：依$\emph{Cauchy}$收敛原理即可证.\\
+ 法二：显然(1)$F(A)=\displaystyle{\int^A_af(x)dx}$有界；（2）$\varphi(A)=\displaystyle{\int^A_a\varphi(x)dx}$无界.则由上一个定理即可证.
+\end{proof}
+
+\begin{corollary}（\textbf{比较判别法的极限形式}）
+ 设在$[a,+\infty)$上恒有$f(x)\geq 0$和$\varphi(x)\geq 0$，且$\displaystyle{\lim_{x\rightarrow +\infty}\dfrac{f(x)}{\varphi(x)}=l}$.\\
+ (1)若$0\leq l<+\infty$,则$\displaystyle{\int^{+\infty}_a\varphi(x)dx}$收敛时，$\displaystyle{\int^{+\infty}_af(x)dx}$也收敛.\\
+ (2)若$0<l\leq +\infty$,则$\displaystyle{\int^{+\infty}_a\varphi(x)dx}$发散时，$\displaystyle{\int^{+\infty}_af(x)dx}$也发散.
+\end{corollary}
+\begin{proof}
+ (1)$\displaystyle{\lim_{x\rightarrow +\infty}\dfrac{f(x)}{\varphi(x)}=l}\Rightarrow \forall\varepsilon>0,\exists X>0,\forall x>X,|\dfrac{f(x)}{\varphi(x)}-l|<\varepsilon \Rightarrow \dfrac{f(x)}{\varphi(x)}-l<\varepsilon \Rightarrow f(x)<(l+\varepsilon)\varphi(x)$不妨设$\varepsilon=1$，则有$f(x)<(l+1)\varphi(x)$故收敛（比较判别法）.\\
+ (2)类似可得不等式$f(x)>(l-1)\varphi(x)$，依比较判别法故收敛.
+\end{proof}
+
+\noindent
+由重要反常积分
+ \[\int^{+\infty}_1 \dfrac{1}{x^p} dx(p\in \mathbb{R})=
+ \begin{cases}
+  \mbox{收敛} & p>1\\
+  \mbox{发散} & p\leq 1
+ \end{cases}
+ \]
+ 我们可得到$\emph{Cauchy}$判别法.
+\begin{theorem}（\textbf{\emph{Cauchy}判别法}）
+ 设在$[a,+\infty)\subset (0,+\infty)$上恒有$f(x)\geq 0$,$K$是正常数.\\
+ (1)若$f(x)\leq \dfrac{K}{x^p}$,且$p>1$,则$\displaystyle{\int^{+\infty}_af(x)dx}$收敛\\
+ (2)若$f(x)\geq \dfrac{K}{x^p}$,且$p\leq 1$,则$\displaystyle{\int^{+\infty}_af(x)dx}$发散
+\end{theorem}
+
+\begin{corollary}（\textbf{\emph{Cauchy}判别法的极限形式}）
+ 设在$[a,+\infty)\subset (0,+\infty)$上恒有$f(x)\geq 0$,且$\displaystyle{\lim_{x\rightarrow +\infty}x^pf(x)=l}$,则\\
+ (1)若$0\leq l<+\infty$,且$p>1$,则$\displaystyle{\int^{+\infty}_af(x)dx}$收敛.\\
+ (2)若$0<l\leq +\infty$,且$p\leq 1$,则$\displaystyle{\int^{+\infty}_af(x)dx}$发散.
+\end{corollary}
+
+\noindent
+\textbf{关于一般函数的反常积分的收敛判别法}
+
+\noindent
+首先给出积分第二中值定理
+\begin{theorem}（\textbf{积分第二中值定理}）
+ 设$f(x)$在$[a,b]$上可积，$g(x)$在$[a,b]$上单调，则存在$\xi\in[a,b]$,使得
+ \[\int^b_af(x)g(x)dx=g(a)\int^{\xi}_af(x)dx+g(b)\int^b_{\xi}f(x)dx\]
+\end{theorem}
+\begin{proof}
+ 只对$f(x)$在$[a,b]$上连续，$g(x)$在$[a,b]$上单调且$g'(x)$在$[a,b]$上可积的情形进行证明.\\
+ 记$F(x)=\displaystyle{\int^x_af(t)dt}$，则$F(x)$在$[a,b]$上连续且由$f(x)$在$[a,b]$上连续知，$F(x)$是$f(x)$的一个原函数.\\
+ $\displaystyle{\int^b_af(x)g(x)dx=\int^b_ag(x)dF(x)=g(x)F(x)|^b_a-\int^b_aF(x)dg(x)=g(x)F(x)|^b_a-\int^b_aF(x)g'(x)dx}$\\
+ $\displaystyle{=g(b)\int^b_af(x)dx-g(b)\int^{\xi}_af(x)dx+g(a)\int^{\xi}_af(x)dx=g(a)\int^{\xi}_af(x)dx+g(b)\int^b_{\xi}f(x)dx}$
+\end{proof}
+\begin{corollary}（\textbf{积分第二中值定理的特殊情形}）\\
+ (1)若$g(x)$在$[a,b]$上单调递增且$g(a)\geq 0$,则$\exists \xi\in[a,b],s.t.\displaystyle{\int^b_af(x)g(x)dx=g(b)\int^b_{\xi}f(x)dx}$\\
+ (2)若$g(x)$在$[a,b]$上单调递减且$g(b)\geq 0$,则$\exists \xi\in[a,b],s.t.\displaystyle{\int^b_af(x)g(x)dx=g(a)\int^{\xi}_af(x)dx}$
+\end{corollary}
+\begin{proof}
+ 设$F(x)=\displaystyle{\int^b_af(t)dt}$,$F(x)$连续可导（$f(x)$ 连续）,则$F'(x)=-f(x),F(b)=0$,\\
+ $\displaystyle{\int^b_af(x)g(x)dx=-\int^b_ag(x)dF(x)=-(g(x)F(x))|^b_a+\int^b_aF(x)dg(x)}$\\
+ $\displaystyle{=-g(b)F(b)+g(a)F(a)+\int^b_aF(x)g'(x)dx=g(a)F(a)+\int^b_aF(x)g'(x)dx}$.\\
+ 不妨设$F(x)$的最大值，最小值分别为$M,m$,从而有
+ \[m(g(b)-g(a))\leq \int^b_aF(x)g'(x)dx \leq M(g(b)-g(a))\]
+ $\Longrightarrow$
+ \[m(g(b)-g(a))+g(a)m\leq g(a)F(a)+\int^b_aF(x)g'(x)dx \leq M(g(b)-g(a))+Mg(a)\]
+ $\Longrightarrow$
+ \[mg(b)\leq g(a)F(a)+\int^b_aF(x)g'(x)dx \leq Mg(b)\]
+ $\Longrightarrow$
+ \[mg(b)\leq \int^b_af(x)g(x)dx \leq Mg(b)\]
+ $\Longrightarrow$
+ \[m\leq \dfrac{\int^b_af(x)g(x)dx}{g(b)}\leq M\]
+ 依介值定理，$\exists \eta,s.t.F(\eta)=\displaystyle{\int^b_{\eta}f(x)dx=\dfrac{\int^b_af(x)g(x)dx}{g(b)}}$, 故
+ \[g(b)\int^b_{\eta}f(x)dx=\int^b_af(x)g(x)dx\]
+ (2)可类似的证明.
+\end{proof}
+
+\begin{theorem}
+ 若下列两条件之一满足，则$\displaystyle{\int^{+\infty}_a f(x)g(x)dx}$收敛\\
+ (1)(\textbf{\emph{Abel}判别法})$\displaystyle{\int^{+\infty}_af(x)dx}$收敛，$g(x)$在$[a,+\infty)$上单调有界.\\
+ (2)(\textbf{\emph{Dirichlet}判别法})$\displaystyle{F(A)=\int^A_af(x)dx}$在$[a,+\infty)$上有界，$g(x)$在$[a,+\infty)$上单调且$\displaystyle{\lim_{x\rightarrow +\infty}g(x)=0}$
+\end{theorem}
+\begin{proof}\\
+(1)若满足$\emph{Abel}$条件.\\
+设$G$为$|g(x)|$的上界,由于$\displaystyle{\int^{+\infty}_af(x)dx}$收敛，则$\forall \varepsilon>0,\exists A>0,\forall A',A''>A,|\displaystyle{\int^{A''}_{A'}f(x)dx}|<\varepsilon$.\\
+$\displaystyle{|\int^{A''}_{A'}f(x)g(x)dx|=|g(A'')\int^{A''}_{\xi}f(x)dx+g(A')\int^{\xi}_{A'}f(x)dx|}$\\
+$\displaystyle{\leq |g(A'')||\int^{A''}_{\xi}f(x)dx|+|g(A')||\int^{\xi}_{A'}f(x)dx|<G\varepsilon+G\varepsilon=2G\varepsilon}$\\
+依$\emph{Cauchy}$收敛原理知，$\displaystyle{\int^{+\infty}_a f(x)g(x)dx}$收敛.\\
+(2)若满足$\emph{Dirichlet}$条件.\\
+$\displaystyle{\lim_{x\rightarrow +\infty}g(x)=0}$,$\Rightarrow \forall \varepsilon>0,\exists X>0,\forall x>X,|g(x)|<\varepsilon$\\
+$\displaystyle{F(A)=\int^A_af(x)dx}$有界，$\Rightarrow |F(A)|<M$.\\
+$\displaystyle{|\int^{A''}_{A'}f(x)g(x)dx|=|g(A'')\int^{A''}_{\xi}f(x)dx+g(A')\int^{\xi}_{A'}f(x)dx|}$\\
+$\displaystyle{\leq |g(A'')||\int^{A''}_{\xi}f(x)dx|+|g(A')||\int^{\xi}_{A'}f(x)dx|<M\varepsilon+M\varepsilon=2M\varepsilon}$\\
+依$\emph{Cauchy}$收敛原理知，$\displaystyle{\int^{+\infty}_a f(x)g(x)dx}$收敛.
+\end{proof}
+
+\noindent
+\textbf{下简要给出无界函数反常积分的收敛判别法}
+
+\begin{theorem}（\textbf{\emph{Cauchy}收敛原理}）
+ 反常积分$\displaystyle{\int^b_af(x)dx}$收敛$\Longleftrightarrow \forall \varepsilon>0,\exists \delta>0,\forall \eta,\eta'\in (0,\delta),|\displaystyle{\int^{b-\eta'}_{b-\eta}f(x)dx}|<\varepsilon$.
+\end{theorem}
+
+\begin{theorem}（\textbf{\emph{Cauchy}判别法}）
+ 设在$[a,b)$上恒有$f(x)\geq 0$,若当$x$属于$b$的某个左邻域$[b-\eta_0,b)$时，存在正常数$K$,使得\\
+ (1)$f(x)\leq \dfrac{K}{(b-x)^p}$,且$p<1$,则$\displaystyle{\int^b_af(x)dx}$收敛.\\
+ (2)$f(x)\geq \dfrac{K}{(b-x)^p}$,且$p\geq 1$,则$\displaystyle{\int^b_af(x)dx}$发散.
+\end{theorem}
+
+\begin{corollary}（\textbf{\emph{Cauchy}判别法的极限形式}）
+ 设在$[a,b)$上恒有$f(x)\geq 0$,且$\displaystyle{\lim_{x\rightarrow b^{-}}(b-x)^pf(x)=l}$,则\\
+ (1)若$0\leq l<+\infty$,且$p<1$,则$\displaystyle{\int^b_af(x)dx}$收敛.\\
+ (2)若$0<l\leq +\infty$,且$p\geq 1$,则$\displaystyle{\int^b_af(x)dx}$发散.
+\end{corollary}
+
+\begin{theorem}
+ 若下列两条件之一满足，则$\displaystyle{\int^b_a f(x)g(x)dx}$收敛\\
+ (1)(\textbf{\emph{Abel}判别法})$\displaystyle{\int^b_af(x)dx}$收敛，$g(x)$在$[a,b)$上单调有界.\\
+ (2)(\textbf{\emph{Dirichlet}判别法})$\displaystyle{F(\eta)=\int^{b-\eta}_af(x)dx}$在$[a,b)$上有界，$g(x)$在$[a,b)$上单调且$\displaystyle{\lim_{x\rightarrow b^{-}}g(x)=0}$
+\end{theorem}
+
+
+\section{一些练习}
+
+\subsection{定理题}
+
+\subsection{经典题}
 
 \end{spacing}
 \clearpage
