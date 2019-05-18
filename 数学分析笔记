@@ -595,6 +595,7 @@ cos\alpha=\dfrac{1-tan^2\dfrac{\alpha}{2}}{1+tan^2\dfrac{\alpha}{2}}\]
 \section{数列极限理论}
 
 \subsection{数列极限的定义}
+
 \begin{definition}
  设$\{x_n\}$为一给定数列，$a$是一个实常数，若对于任意给定的$\varepsilon>0$,都能够找到正整数$N$，使得当$n>N$时，成立$|x_n-a|<\varepsilon$,则称数列$\{x_n\}$收敛于$a$,记为$\displaystyle{\lim_{n\rightarrow \infty}x_n=a}$.
 \end{definition}
@@ -637,9 +638,111 @@ $\forall \varepsilon>0,\exists N\in \mathbb{N}^{+},\forall n>N,|x_n-a|<\varepsil
 (4)$\displaystyle{\lim_{n\rightarrow \infty}(a_1^n+a_2^n+\cdots+a_p^n)^{\dfrac{1}{n}}=\max_{1\leq i\leq p}\{a_i\}}(a_i\geq 0)$.\\
 (5)设$a_n>0$,且$\displaystyle{\lim_{n\rightarrow \infty}a_n=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a_1a_2\cdots a_n}=a}$.\\
 (6)$\{x_n\}$为无穷小量，$\{y_n\}$为有界量，则$\{x_ny_n\}$为无穷小量.\\
-(7)若$a_n>0(n=1,2,\cdots)$,且$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{a_{n+1}}{a_n}=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a_n}=a}$.
+(7)若$a_n>0(n=1,2,\cdots)$,且$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{a_{n+1}}{a_n}=a}$,则$\displaystyle{\lim_{n\rightarrow \infty}\sqrt[n]{a_n}=a}$.\\
+(8)若$a_n>0(n=1,2,\cdots)$,且$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{a_n}{a_{n+1}}=l>1}$,则$\displaystyle{\lim_{n\rightarrow \infty}a_n=0}$.
+\\
+
+\noindent
+\textbf{关于数列的无穷大量}
+
+\begin{definition}
+ 若对于任意给定的$G>0$,可以找到正整数$N$,使得当$n>N$时成立，$|x_n|>G$,则称数列$\{x_n\}$是无穷大量，记为$\displaystyle{\lim_{n\rightarrow \infty}x_n=\infty}$.
+\end{definition}
+$\Longleftrightarrow "G-N"$语言:\\
+$\forall G>0,\exists N,\forall n>N,|x_n|>G \Longleftrightarrow \displaystyle{\lim_{n\rightarrow \infty}x_n=\infty}$.
+
+\begin{theorem}(\textbf{\emph{Stolz}定理})
+ 设$\{y_n\}$是严格单调递增的正无穷大量，且$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}=a}$,其中$a$可以为有限量，也可以为$\pm \infty$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\noindent
+\textbf{一些结论：}\\
+(1)
+\[\lim_{n\rightarrow \infty}\dfrac{a_0n^k+a_1n^{k-1}+\cdots+a_{n-1}n+a_k}{b_0n^l+b_1n^{l-1}+\cdots+b_{l-1}n+b_l}=
+\begin{cases}
+0 & k<l\\
+\dfrac{a_0}{b_0} & k=l\\
+\infty & k>l
+\end{cases}
+\]
+(2)$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{log_a^n}{n}=0\quad (a>1)}$.\\
+(3)$\displaystyle{\lim_{n\rightarrow \infty}\dfrac{n^k}{a^n} \quad (a>1,k\in \mathbb{N}^+)}$.
 
 \subsection{收敛准则}
+
+\begin{theorem}
+ 单调有界数列必收敛.
+\end{theorem}
+\begin{proof}
+ 不妨设数列$\{x_n\}$单调递增且有上界，依确界原理知，$\{x_n\}$必有上确界$\beta$,其满足：\\
+ (1)$\forall n\in \mathbb{N}^+,x_n\leq \beta.$\\
+ (2)$\forall \varepsilon>0,\exists x_{n_0},x_{n_0}\geq \beta-\varepsilon$\\
+ 取$N=n_0$,当$n>N$时，有$\beta-\varepsilon<x_{n_0}\leq x_n\leq \beta$,从而$|x_n-\beta|<\varepsilon$,故$\displaystyle{\lim_{n\rightarrow \infty}x_n=\beta}$.
+\end{proof}
+
+
+\noindent
+\textbf{现利用上述理论引出三个重要的无理数：$e,\pi$以及$\gamma$（$\emph{Euler}$常数）}.
+
+\noindent
+\textbf{$\pi$}:\\
+设单位圆内接正$n$边形的半周长为$L_n$,则$L_n=n\sin\dfrac{180^{\circ}}{n}$.显然$\{L_n\}$收敛于该圆的半周长,即圆周率$\pi$.（$\pi=\dfrac{C}{d}=\dfrac{\dfrac{C}{2}}{r}=\dfrac{\displaystyle{\lim_{n\rightarrow \infty}L_n}}{r}=\displaystyle{\lim_{n\rightarrow \infty}L_n}$）.\\
+下严格证明$\{n\sin\dfrac{180^{\circ}}{n}\}$是收敛的.\\
+\begin{proof}
+ 令$t=\dfrac{180^{\circ}}{n(n+1)}$,当$n\geq 3$时，$nt\leq 45^{\circ}$.\\
+ 从而$\tan nt=\dfrac{\tan(n-1)t+\tan nt}{1-\tan(n-1)t\tan nt}\geq \tan(n-1)t+\tan nt\geq \cdots \geq n\tan t$\\
+ 则$\sin(n+1)t=\sin nt\cos t+\cos nt\sin t=\sin nt\cos t(1+\dfrac{\tan t}{\tan nt})\leq \dfrac{n+1}{n}\sin nt$.\\
+ 故，当$n\geq 3$时，$L_n=n\sin\dfrac{180^{\circ}}{n}\leq (n+1)\sin\dfrac{180^{\circ}}{n+1}=L_{n+1}$.即$L_n$单调.\\
+ 又单位圆内接正$n$边形的面积：$S_n=n\sin\dfrac{180^{\circ}}{n}\cos\dfrac{180^{\circ}}{n}<4$.\\
+ 故当$n\geq 3$时，$L_n=n\sin\dfrac{180^{\circ}}{n}<\dfrac{4}{\cos\dfrac{180^{\circ}}{n}}\geq \dfrac{4}{\cos60^{\circ}}=8$,即$L_n$有界.\\
+ 从而$L_n$收敛，记$\displaystyle{\lim_{n\rightarrow \infty}n\sin\dfrac{180^{\circ}}{n}=\pi}$.
+\end{proof}
+
+\noindent
+\textbf{$e$}:\\
+证明一个事实：数列$\{(1+\dfrac{1}{n})^n\}$单调递增,数列$\{(1+\dfrac{1}{n})^{n+1}\}$单调递减，两者收敛于同一极限.\\
+\begin{proof}
+ 记$x_n=(1+\dfrac{1}{n})^n,y_n=(1+\dfrac{1}{n})^{n+1}$,根据平均值不等式：$\sqrt[n]{a_1a_2\cdots a_n}\leq \dfrac{a_1+a_2+\cdots+a_n}{n}(a_k>0)$.\\
+ 有：$x_n=(1+\dfrac{1}{n})^n\cdot 1\leq (\dfrac{n(1+\dfrac{1}{n})+1}{n+1})^{n+1}=(\dfrac{n+1+1}{n+1})^{n+1}=(1+\dfrac{1}{n+1})^{n+1}=x_{n+1}$.\\
+ $\dfrac{1}{y_n}=(\dfrac{n}{n+1})^{n+1}\cdot 1\leq (\dfrac{\dfrac{n}{n+1}+1}{n+1})^{n+2}=(\dfrac{n+1}{n+2})^{n+2}=\dfrac{1}{y_{n+1}}$.\\
+ 从而$\{x_n\}$单调递增，$\{y_n\}$单调递减.\\
+ 又$2=x_1\leq x_n<y_n\leq y_1=4$,则$\{x_n\},\{y_n\}$有界，故$\{x_n\},\{y_n\}$收敛.\\
+ 由于$y_n=x_n(1+\dfrac{1}{n})$,故$\{x_n\},\{y_n\}$有相同的极限.记$\displaystyle{\lim_{n\rightarrow \infty}(1+\dfrac{1}{n})^n=\lim_{n\rightarrow \infty}(1+\dfrac{1}{n})^{n+1}=e}$.
+\end{proof}
+
+\noindent
+\textbf{$\gamma$}:\\
+记$b_n=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots+\dfrac{1}{n}-\ln n$,现证明$\{b_n\}$是收敛的\\
+\begin{proof}
+ 由$e$的证明过程，可知不等式$(1+\dfrac{1}{n})^n<e>(1+\dfrac{1}{n})^{n+1}$.则$\dfrac{1}{n+1}<\ln\dfrac{n+1}{n}<\dfrac{1}{n}$.\\
+ $b_{n+1}-b_n=\dfrac{1}{n+1}-\ln(n+1)+\ln n=\dfrac{1}{n+1}-\ln\dfrac{n+1}{n}<0$,即$\{b_n\}$单调递减.\\
+ 又$b_n=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots+\dfrac{1}{n}-\ln n>\ln\dfrac{2}{1}+\ln\dfrac{3}{2}+\cdots+\ln{n+1}{n}-\ln n=\ln(n+1)-\ln n>0$,即$\{b_n\}$有下界.故$\{b_n\}$收敛.\\
+ 记$\displaystyle{\lim_{n\rightarrow \infty}b_n=\gamma}$.
+\end{proof}
+
+
+\noindent
+\textbf{下给出其他的实数系基本定理：}\\
+
+\begin{theorem}（\textbf{闭区间套定理}）
+ 若一列闭区间$\{[a_n,b_n]\}$满足条件：\\
+ (1)$[a_{n+1},b_{n+1}]\subset [a_n,b_n] n=1,2,\cdots $,\\
+ (2)$\displaystyle{\lim_{n\rightarrow \infty}b_n-a_n=0}$.\\
+ 则称这列闭区间形成一个闭区间套.若$\{[a_n,b_n]\}$形成一个闭区间套，则存在唯一的实数$\xi$属于所有的闭区间$[a_n,b_n]$,且
+ \[\xi=\lim_{n\rightarrow \infty}a_n=\lim_{n\rightarrow \infty}b_n\]
+\end{theorem}
+
+\begin{definition}
+
+\end{definition}
+
+
+
+
+
 
 
 \section{一些练习}
